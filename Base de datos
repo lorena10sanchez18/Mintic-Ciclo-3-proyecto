@@ -1,0 +1,37 @@
+-- --------------------------------------- Creación de la base de datos --------------------------------------------
+-- -----------------------------------------------------------------------------------------------------------------
+-- -------------------------------------------- Tabla Bodega ------------------------------------------------------- 
+CREATE TABLE `bodega` (
+  `id_bodega` int NOT NULL,
+  `descripcion` varchar(45) COLLATE utf8mb3_bin DEFAULT NULL,
+  PRIMARY KEY (`id_bodega`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
+
+SELECT * FROM bodega;
+-- -----------------------------------------------------------------------------------------------------------------
+-- -------------------------------------------- Tabla Compras ------------------------------------------------------ 
+CREATE TABLE `compras` (
+  `id_compra` int NOT NULL,
+  `factura` varchar(20) COLLATE utf8mb3_bin DEFAULT NULL,
+  `fecha` date DEFAULT NULL,
+  PRIMARY KEY (`id_compra`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
+
+SELECT * FROM compras;
+
+-- -----------------------------------------------------------------------------------------------------------------
+-- -------------------------------------------- Tabla Producto -----------------------------------------------------
+CREATE TABLE `producto` (
+  `id_producto` varchar(2) COLLATE utf8mb3_bin NOT NULL,
+  `descripcion` varchar(45) COLLATE utf8mb3_bin DEFAULT NULL,
+  `valor_venta` double DEFAULT NULL,
+  PRIMARY KEY (`id_producto`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
+
+-- -----------------------------------------------------------------------------------------------------------------
+-- -------------------------------------------- Tabla Ubicación ----------------------------------------------------
+CREATE TABLE `ubicacion` (
+  `id_ubicacion` int NOT NULL,
+  `posicion` varchar(45) COLLATE utf8mb3_bin DEFAULT NULL,
+  PRIMARY KEY (`id_ubicacion`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
