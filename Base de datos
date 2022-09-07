@@ -1,37 +1,86 @@
 -- --------------------------------------- Creación de la base de datos --------------------------------------------
 -- -----------------------------------------------------------------------------------------------------------------
--- -------------------------------------------- Tabla Bodega ------------------------------------------------------- 
-CREATE TABLE `bodega` (
-  `id_bodega` int NOT NULL,
-  `descripcion` varchar(45) COLLATE utf8mb3_bin DEFAULT NULL,
-  PRIMARY KEY (`id_bodega`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
+-- -------------------------------------------- Tabla Productos ----------------------------------------------------
 
-SELECT * FROM bodega;
--- -----------------------------------------------------------------------------------------------------------------
--- -------------------------------------------- Tabla Compras ------------------------------------------------------ 
-CREATE TABLE `compras` (
-  `id_compra` int NOT NULL,
-  `factura` varchar(20) COLLATE utf8mb3_bin DEFAULT NULL,
-  `fecha` date DEFAULT NULL,
-  PRIMARY KEY (`id_compra`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
-
-SELECT * FROM compras;
-
--- -----------------------------------------------------------------------------------------------------------------
--- -------------------------------------------- Tabla Producto -----------------------------------------------------
-CREATE TABLE `producto` (
-  `id_producto` varchar(2) COLLATE utf8mb3_bin NOT NULL,
-  `descripcion` varchar(45) COLLATE utf8mb3_bin DEFAULT NULL,
+CREATE TABLE `productos` (
+  `id_producto` int NOT NULL auto_increment,
+  `descripcion` varchar(45) DEFAULT NULL,
   `valor_venta` double DEFAULT NULL,
   PRIMARY KEY (`id_producto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
+);
+DROP TABLE productos;
+SELECT * FROM productos;
 
 -- -----------------------------------------------------------------------------------------------------------------
--- -------------------------------------------- Tabla Ubicación ----------------------------------------------------
-CREATE TABLE `ubicacion` (
-  `id_ubicacion` int NOT NULL,
-  `posicion` varchar(45) COLLATE utf8mb3_bin DEFAULT NULL,
+-- -------------------------------------------- Tabla Ubicaciones --------------------------------------------------
+
+CREATE TABLE `ubicaciones` (
+  `id_ubicacion` int NOT NULL auto_increment,
+  `posicion` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id_ubicacion`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
+);
+DROP TABLE ubicaciones;
+SELECT * FROM ubicaciones;
+
+-- -----------------------------------------------------------------------------------------------------------------
+-- -------------------------------------------- Tabla Usuarios -----------------------------------------------------
+
+CREATE TABLE `usuarios` (
+  `id_usuario` int NOT NULL auto_increment,
+  `cedula` int NOT NULL unique,
+  `contrasenia` varchar(50) DEFAULT NULL,
+  `rol` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id_usuario`)
+);
+DROP TABLE usuarios;
+SELECT * FROM usuarios;
+
+-- -----------------------------------------------------------------------------------------------------------------
+-- -------------------------------------------- Tabla Ventas -----------------------------------------------------
+
+CREATE TABLE `ventas` (
+  `id_venta` int NOT NULL auto_increment,
+  `fecha` date DEFAULT NULL,
+  `cantidad` int DEFAULT NULL,
+  `valor_total` double DEFAULT NULL,
+  `id_producto` int NOT NULL,
+  PRIMARY KEY (`id_venta`),
+  CONSTRAINT `fk_id_producto_ventas` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`)
+);
+DROP TABLE ventas;
+SELECT * FROM ventas;
+
+-- -----------------------------------------------------------------------------------------------------------------
+-- -------------------------------------------- Tabla Ingresos_Bodega ---------------------------------------------- 
+CREATE TABLE `ingresos_bodega` (
+  `id_ingreso_bodega` int NOT NULL auto_increment,
+  `factura` varchar(20) DEFAULT NULL,
+  `observaciones` varchar(200) DEFAULT NULL,
+  `fecha` date DEFAULT NULL,
+  `id_producto` int NOT NULL,
+  `cantidad` int DEFAULT NULL,
+  `valor_unitario` double DEFAULT NULL,
+  `id_ubicacion` int DEFAULT NULL,
+  PRIMARY KEY (`id_ingreso_bodega`),
+  CONSTRAINT `fk_id_producto_compras` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`),
+  CONSTRAINT `fk_id_ubicacion_compras` FOREIGN KEY (`id_ubicacion`) REFERENCES `ubicaciones` (`id_ubicacion`)
+);
+DROP TABLE ingresos_bodega;
+SELECT * FROM ingresos_bodega;
+
+-- -----------------------------------------------------------------------------------------------------------------
+-- -------------------------------------------- Tabla Ingresos_Tienda ---------------------------------------------- 
+CREATE TABLE `ingresos_tienda` (
+  `id_ingreso_tienda` int NOT NULL auto_increment,
+  `fecha` date DEFAULT NULL,
+  `id_producto` int NOT NULL,
+  `cantidad` int DEFAULT NULL,
+  `id_ubicacion` int DEFAULT NULL,
+  PRIMARY KEY (`id_ingreso_tienda`),
+  CONSTRAINT `fk_id_producto_tienda` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`),
+  CONSTRAINT `fk_id_ubicacion_tienda` FOREIGN KEY (`id_ubicacion`) REFERENCES `ubicaciones` (`id_ubicacion`)
+);
+DROP TABLE ingresos_tienda;
+SELECT * FROM ingresos_tienda;
+
+
