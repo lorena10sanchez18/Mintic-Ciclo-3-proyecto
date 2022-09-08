@@ -9,6 +9,10 @@ CREATE TABLE `motivos` (
 );
 DROP TABLE motivos;
 SELECT * FROM motivos;
+INSERT INTO `DB_Tienda_Huevos`.`motivos` (`descripcion`) VALUES ('Dañado');
+INSERT INTO `DB_Tienda_Huevos`.`motivos` (`descripcion`) VALUES ('Roto');
+INSERT INTO `DB_Tienda_Huevos`.`motivos` (`descripcion`) VALUES ('Perdido');
+INSERT INTO `DB_Tienda_Huevos`.`motivos` (`descripcion`) VALUES ('Otro');
 
 -- -----------------------------------------------------------------------------------------------------------------
 -- -------------------------------------------- Tabla Bodegas ------------------------------------------------------
@@ -20,6 +24,8 @@ CREATE TABLE `bodegas` (
 );
 DROP TABLE bodegas;
 SELECT * FROM bodegas;
+INSERT INTO `DB_Tienda_Huevos`.`bodegas` (`descripcion`) VALUES ('Bodega');
+INSERT INTO `DB_Tienda_Huevos`.`bodegas` (`descripcion`) VALUES ('Tienda');
 
 -- -----------------------------------------------------------------------------------------------------------------
 -- -------------------------------------------- Tabla Productos ----------------------------------------------------
@@ -33,6 +39,14 @@ CREATE TABLE `productos` (
 DROP TABLE productos;
 SELECT * FROM productos;
 
+INSERT INTO `DB_Tienda_Huevos`.`productos` (`descripcion`, `valor_venta`) VALUES ('A', '500');
+INSERT INTO `DB_Tienda_Huevos`.`productos` (`descripcion`, `valor_venta`) VALUES ('AA', '550');
+INSERT INTO `DB_Tienda_Huevos`.`productos` (`descripcion`, `valor_venta`) VALUES ('EXTRA', '600');
+INSERT INTO `DB_Tienda_Huevos`.`productos` (`descripcion`, `valor_venta`) VALUES ('JUMBO', '650');
+INSERT INTO `DB_Tienda_Huevos`.`productos` (`descripcion`, `valor_venta`) VALUES ('B', '450');
+INSERT INTO `DB_Tienda_Huevos`.`productos` (`descripcion`, `valor_venta`) VALUES ('CRIOLLO', '600');
+INSERT INTO `DB_Tienda_Huevos`.`productos` (`descripcion`, `valor_venta`) VALUES ('CODORNIZ', '300');
+
 -- -----------------------------------------------------------------------------------------------------------------
 -- -------------------------------------------- Tabla Ubicaciones --------------------------------------------------
 
@@ -43,6 +57,17 @@ CREATE TABLE `ubicaciones` (
 );
 DROP TABLE ubicaciones;
 SELECT * FROM ubicaciones;
+
+INSERT INTO `DB_Tienda_Huevos`.`ubicaciones` (`posicion`) VALUES ('B-A2');
+INSERT INTO `DB_Tienda_Huevos`.`ubicaciones` (`posicion`) VALUES ('B-B1');
+INSERT INTO `DB_Tienda_Huevos`.`ubicaciones` (`posicion`) VALUES ('B-B2');
+INSERT INTO `DB_Tienda_Huevos`.`ubicaciones` (`posicion`) VALUES ('B-C1');
+INSERT INTO `DB_Tienda_Huevos`.`ubicaciones` (`posicion`) VALUES ('B-C2');
+INSERT INTO `DB_Tienda_Huevos`.`ubicaciones` (`posicion`) VALUES ('B-TRANSITO');
+INSERT INTO `DB_Tienda_Huevos`.`ubicaciones` (`posicion`) VALUES ('T-D1');
+INSERT INTO `DB_Tienda_Huevos`.`ubicaciones` (`posicion`) VALUES ('T-E1');
+INSERT INTO `DB_Tienda_Huevos`.`ubicaciones` (`posicion`) VALUES ('T-F1');
+INSERT INTO `DB_Tienda_Huevos`.`ubicaciones` (`posicion`) VALUES ('T-TRANSITO');
 
 -- -----------------------------------------------------------------------------------------------------------------
 -- -------------------------------------------- Tabla Usuarios -----------------------------------------------------
@@ -56,6 +81,11 @@ CREATE TABLE `usuarios` (
 );
 DROP TABLE usuarios;
 SELECT * FROM usuarios;
+
+INSERT INTO `DB_Tienda_Huevos`.`usuarios` (`cedula`, `contrasenia`, `rol`) VALUES ('123456', '123456', 'ADMINISTRADOR');
+INSERT INTO `DB_Tienda_Huevos`.`usuarios` (`cedula`, `contrasenia`, `rol`) VALUES ('987654', '987654', 'ADMINISTRADOR');
+INSERT INTO `DB_Tienda_Huevos`.`usuarios` (`cedula`, `contrasenia`, `rol`) VALUES ('12345', '012345', 'AUXILIAR BODEGA');
+INSERT INTO `DB_Tienda_Huevos`.`usuarios` (`cedula`, `contrasenia`, `rol`) VALUES ('98765', '098765', 'VENDEDOR');
 
 -- -----------------------------------------------------------------------------------------------------------------
 -- -------------------------------------------- Tabla Ventas -----------------------------------------------------
@@ -117,10 +147,15 @@ CREATE TABLE `traslados` (
   `cantidad` int DEFAULT NULL,
   `observaciones` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id_traslado`),
-  CONSTRAINT `fk_id_producto_traslado` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`)
+  CONSTRAINT `fk_id_producto_traslado` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`),
+  CONSTRAINT `fk_bodega_origen` FOREIGN KEY (`origen`) REFERENCES `bodegas` (`id_bodega`),
+  CONSTRAINT `fk_bodega_destino` FOREIGN KEY (`destino`) REFERENCES `bodegas` (`id_bodega`)
 );
 DROP TABLE traslados;
 SELECT * FROM traslados;
+
+INSERT INTO `DB_Tienda_Huevos`.`traslados` (`fecha`, `origen`, `destino`, `id_producto`, `cantidad`, `observaciones`) 
+VALUES ('2022/01/09', '1', '2', '1', '10', 'Pruebas');
 
 -- -----------------------------------------------------------------------------------------------------------------
 -- -------------------------------------------- Tabla Ajustes Inventario -------------------------------------------- 
