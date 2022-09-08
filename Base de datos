@@ -138,6 +138,6 @@ CREATE TABLE `ajustes_inventario` (
   CONSTRAINT `fk_bodega_ajuste` FOREIGN KEY (`id_bodega`) REFERENCES `bodegas` (`id_bodega`),
   CONSTRAINT `fk_motivo_ajuste` FOREIGN KEY (`id_motivo`) REFERENCES `motivos` (`id_motivo`)
 );
-DROP TABLE traslados;
-SELECT * FROM traslados;
+DROP TABLE ajustes_inventario;
+SELECT * FROM ajustes_inventario;
 
