@@ -117,7 +117,9 @@ CREATE TABLE `traslados` (
   `cantidad` int DEFAULT NULL,
   `observaciones` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id_traslado`),
-  CONSTRAINT `fk_id_producto_traslado` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`)
+  CONSTRAINT `fk_id_producto_traslado` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`),
+  CONSTRAINT `fk_bodega_origen` FOREIGN KEY (`origen`) REFERENCES `bodegas` (`id_bodega`),
+  CONSTRAINT `fk_bodega_destino` FOREIGN KEY (`destino`) REFERENCES `bodegas` (`id_bodega`)
 );
 DROP TABLE traslados;
 SELECT * FROM traslados;
