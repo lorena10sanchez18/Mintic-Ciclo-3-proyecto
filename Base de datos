@@ -1,5 +1,27 @@
 -- --------------------------------------- Creación de la base de datos --------------------------------------------
 -- -----------------------------------------------------------------------------------------------------------------
+-- -------------------------------------------- Tabla Motivos ------------------------------------------------------
+
+CREATE TABLE `motivos` (
+  `id_motivo` int NOT NULL auto_increment,
+  `descripcion` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id_motivo`)
+);
+DROP TABLE motivos;
+SELECT * FROM motivos;
+
+-- -----------------------------------------------------------------------------------------------------------------
+-- -------------------------------------------- Tabla Bodegas ------------------------------------------------------
+
+CREATE TABLE `bodegas` (
+  `id_bodega` int NOT NULL auto_increment,
+  `descripcion` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id_bodega`)
+);
+DROP TABLE bodegas;
+SELECT * FROM bodegas;
+
+-- -----------------------------------------------------------------------------------------------------------------
 -- -------------------------------------------- Tabla Productos ----------------------------------------------------
 
 CREATE TABLE `productos` (
@@ -81,6 +103,41 @@ CREATE TABLE `ingresos_tienda` (
   CONSTRAINT `fk_id_ubicacion_tienda` FOREIGN KEY (`id_ubicacion`) REFERENCES `ubicaciones` (`id_ubicacion`)
 );
 DROP TABLE ingresos_tienda;
-SELECT * FROM ingresos_tienda;
+SELECT * FROM ingresos_tienda;	
 
+-- -----------------------------------------------------------------------------------------------------------------
+-- -------------------------------------------- Tabla Traslados ---------------------------------------------------- 
+
+CREATE TABLE `traslados` (
+  `id_traslado` int NOT NULL auto_increment,
+  `fecha` date DEFAULT NULL,
+  `origen` int NOT NULL,
+  `destino` int DEFAULT NULL,
+  `id_producto` int DEFAULT NULL,
+  `cantidad` int DEFAULT NULL,
+  `observaciones` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id_traslado`),
+  CONSTRAINT `fk_id_producto_traslado` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`)
+);
+DROP TABLE traslados;
+SELECT * FROM traslados;
+
+-- -----------------------------------------------------------------------------------------------------------------
+-- -------------------------------------------- Tabla Ajustes Inventario -------------------------------------------- 
+
+CREATE TABLE `ajustes_inventario` (
+  `id_ajuste_inventario` int NOT NULL auto_increment,
+  `id_producto` int DEFAULT NULL,
+  `fecha` date DEFAULT NULL,
+  `id_bodega` int NOT NULL,
+  `id_motivo` int DEFAULT NULL,
+  `cantidad` int DEFAULT NULL,
+  `observaciones` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id_ajuste_inventario`),
+  CONSTRAINT `fk_id_producto_ajuste` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`),
+  CONSTRAINT `fk_bodega_ajuste` FOREIGN KEY (`id_bodega`) REFERENCES `bodegas` (`id_bodega`),
+  CONSTRAINT `fk_motivo_ajuste` FOREIGN KEY (`id_motivo`) REFERENCES `motivos` (`id_motivo`)
+);
+DROP TABLE traslados;
+SELECT * FROM traslados;
 
