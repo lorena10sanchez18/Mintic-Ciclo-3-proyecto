@@ -1,15 +1,20 @@
 package co.edu.utp.misiontic2022.c3.appTiendaHuevos.Services;
 
-import co.edu.utp.misiontic2022.c3.appTiendaHuevos.Repository.IUsuarioRepository;
-import lombok.AllArgsConstructor;
+
+import co.edu.utp.misiontic2022.c3.appTiendaHuevos.Model.Usuarios;
+import co.edu.utp.misiontic2022.c3.appTiendaHuevos.Repository.IUsuariosRepository;
+import co.edu.utp.misiontic2022.c3.appTiendaHuevos.Services.Gateway.IUsuariosGateway;
 import org.springframework.stereotype.Service;
-
 @Service
-@AllArgsConstructor
-public class UsuarioServices implements IUsuarioRepository {
+public class UsuariosServices implements IUsuariosGateway {
+    public final IUsuariosRepository iUsuariosRepository;
 
-    public final IUsuarioRepository iUsuarioRepository;
-
+    public UsuariosServices(IUsuariosRepository iUsuariosRepository) {
+        this.iUsuariosRepository = iUsuariosRepository;
+    }
     @Override
-    public void fin(String nome) {}
+    public Usuarios buscarUsuarioPorCedula(Integer cedula){
+        return iUsuariosRepository.findByCedula(cedula);
+    }
+
 }
