@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @Table(name = "usuarios", indexes = {@Index(columnList = "cedula")})
-public class Usuario {
+public class Usuarios {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +28,7 @@ public class Usuario {
     @Column(name = "rol",  nullable = false, length = 20)
     private String rol;
 
-    public Usuario(Integer cedula, String contrasenia, String rol) {
+    public Usuarios(Integer cedula, String contrasenia, String rol) {
         this.cedula = cedula;
         this.contrasenia = contrasenia;
         this.rol = rol;
