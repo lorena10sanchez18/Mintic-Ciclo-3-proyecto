@@ -7,7 +7,7 @@ CREATE TABLE `motivos` (
   `descripcion` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id_motivo`)
 );
-DROP TABLE motivos;
+-- DROP TABLE motivos;
 SELECT * FROM motivos;
 INSERT INTO `DB_Tienda_Huevos`.`motivos` (`descripcion`) VALUES ('Dañado');
 INSERT INTO `DB_Tienda_Huevos`.`motivos` (`descripcion`) VALUES ('Roto');
@@ -22,7 +22,7 @@ CREATE TABLE `bodegas` (
   `descripcion` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id_bodega`)
 );
-DROP TABLE bodegas;
+-- DROP TABLE bodegas;
 SELECT * FROM bodegas;
 INSERT INTO `DB_Tienda_Huevos`.`bodegas` (`descripcion`) VALUES ('Bodega');
 INSERT INTO `DB_Tienda_Huevos`.`bodegas` (`descripcion`) VALUES ('Tienda');
@@ -36,7 +36,7 @@ CREATE TABLE `productos` (
   `valor_venta` double DEFAULT NULL,
   PRIMARY KEY (`id_producto`)
 );
-DROP TABLE productos;
+-- DROP TABLE productos;
 SELECT * FROM productos;
 
 INSERT INTO `DB_Tienda_Huevos`.`productos` (`descripcion`, `valor_venta`) VALUES ('A', '500');
@@ -55,7 +55,7 @@ CREATE TABLE `ubicaciones` (
   `posicion` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id_ubicacion`)
 );
-DROP TABLE ubicaciones;
+-- DROP TABLE ubicaciones;
 SELECT * FROM ubicaciones;
 
 INSERT INTO `DB_Tienda_Huevos`.`ubicaciones` (`posicion`) VALUES ('B-A2');
@@ -79,7 +79,7 @@ CREATE TABLE `usuarios` (
   `rol` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id_usuario`)
 );
-DROP TABLE usuarios;
+-- DROP TABLE usuarios;
 SELECT * FROM usuarios;
 
 INSERT INTO `DB_Tienda_Huevos`.`usuarios` (`cedula`, `contrasenia`, `rol`) VALUES ('123456', '123456', 'ADMINISTRADOR');
@@ -99,7 +99,7 @@ CREATE TABLE `ventas` (
   PRIMARY KEY (`id_venta`),
   CONSTRAINT `fk_id_producto_ventas` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`)
 );
-DROP TABLE ventas;
+-- DROP TABLE ventas;
 SELECT * FROM ventas;
 
 -- -----------------------------------------------------------------------------------------------------------------
@@ -117,7 +117,7 @@ CREATE TABLE `ingresos_bodega` (
   CONSTRAINT `fk_id_producto_compras` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`),
   CONSTRAINT `fk_id_ubicacion_compras` FOREIGN KEY (`id_ubicacion`) REFERENCES `ubicaciones` (`id_ubicacion`)
 );
-DROP TABLE ingresos_bodega;
+-- DROP TABLE ingresos_bodega;
 SELECT * FROM ingresos_bodega;
 
 -- -----------------------------------------------------------------------------------------------------------------
@@ -132,7 +132,7 @@ CREATE TABLE `ingresos_tienda` (
   CONSTRAINT `fk_id_producto_tienda` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`),
   CONSTRAINT `fk_id_ubicacion_tienda` FOREIGN KEY (`id_ubicacion`) REFERENCES `ubicaciones` (`id_ubicacion`)
 );
-DROP TABLE ingresos_tienda;
+-- DROP TABLE ingresos_tienda;
 SELECT * FROM ingresos_tienda;	
 
 -- -----------------------------------------------------------------------------------------------------------------
@@ -151,7 +151,7 @@ CREATE TABLE `traslados` (
   CONSTRAINT `fk_bodega_origen` FOREIGN KEY (`origen`) REFERENCES `bodegas` (`id_bodega`),
   CONSTRAINT `fk_bodega_destino` FOREIGN KEY (`destino`) REFERENCES `bodegas` (`id_bodega`)
 );
-DROP TABLE traslados;
+-- DROP TABLE traslados;
 SELECT * FROM traslados;
 
 INSERT INTO `DB_Tienda_Huevos`.`traslados` (`fecha`, `origen`, `destino`, `id_producto`, `cantidad`, `observaciones`) 
@@ -173,6 +173,6 @@ CREATE TABLE `ajustes_inventario` (
   CONSTRAINT `fk_bodega_ajuste` FOREIGN KEY (`id_bodega`) REFERENCES `bodegas` (`id_bodega`),
   CONSTRAINT `fk_motivo_ajuste` FOREIGN KEY (`id_motivo`) REFERENCES `motivos` (`id_motivo`)
 );
-DROP TABLE ajustes_inventario;
+-- DROP TABLE ajustes_inventario;
 SELECT * FROM ajustes_inventario;
 
