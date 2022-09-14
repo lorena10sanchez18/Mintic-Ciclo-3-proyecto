@@ -16,5 +16,9 @@ public class UsuariosServices implements IUsuariosGateway {
     public Usuarios buscarUsuarioPorCedula(Integer cedula){
         return iUsuariosRepository.findByCedula(cedula);
     }
+    @Override
+    public Usuarios buscarRol(Integer cedula, String contrasenia){
+        return iUsuariosRepository.buscarRol(cedula ,contrasenia);
+    }
 
 }
