@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "motivos")
+@Table(name = "motivos", indexes = {@Index(columnList = "descripcion")})
 public class Motivos {
 
     @Id
@@ -18,7 +18,7 @@ public class Motivos {
     @Column(name = "id_motivo",  nullable = false, unique = true)
     private Integer idMotivo;
 
-    @Column(name = "descripcion",  nullable = false,  length = 45)
+    @Column(name = "descripcion",  nullable = false,  length = 45, unique = true)
     private String descripcion;
 
     public Motivos(String descripcion) {
