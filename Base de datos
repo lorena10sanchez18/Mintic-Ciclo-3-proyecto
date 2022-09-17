@@ -47,6 +47,11 @@ INSERT INTO `DB_Tienda_Huevos`.`productos` (`descripcion`, `valor_venta`) VALUES
 INSERT INTO `DB_Tienda_Huevos`.`productos` (`descripcion`, `valor_venta`) VALUES ('CRIOLLO', '600');
 INSERT INTO `DB_Tienda_Huevos`.`productos` (`descripcion`, `valor_venta`) VALUES ('CODORNIZ', '300');
 
+ALTER TABLE `DB_Tienda_Huevos`.`productos` 
+CHANGE COLUMN `descripcion` `descripcion` VARCHAR(45) NOT NULL ,
+ADD UNIQUE INDEX `descripcion_UNIQUE` (`descripcion` ASC) VISIBLE;
+;
+
 -- -----------------------------------------------------------------------------------------------------------------
 -- -------------------------------------------- Tabla Ubicaciones --------------------------------------------------
 
