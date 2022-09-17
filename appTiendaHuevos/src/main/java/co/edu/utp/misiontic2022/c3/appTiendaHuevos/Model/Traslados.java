@@ -28,14 +28,23 @@ public class Traslados {
     private String observaciones;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="id_producto")
-    private Productos idProducto;
+    @JoinColumn(name="descripcion")
+    private Productos descripcionProducto;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="id_bodega")
-    private Bodegas origen;
+    @JoinColumn(name="descripcion")
+    private Bodegas descripcionOrigen;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="id_bodega")
-    private Bodegas destino;
+    @JoinColumn(name="descripcion")
+    private Bodegas descripcionDestino;
+
+    public Traslados(String fecha, Integer cantidad, String observaciones, Productos descripcionProducto, Bodegas descripcionOrigen, Bodegas descripcionDestino) {
+        this.fecha = fecha;
+        this.cantidad = cantidad;
+        this.observaciones = observaciones;
+        this.descripcionProducto = descripcionProducto;
+        this.descripcionOrigen = descripcionOrigen;
+        this.descripcionDestino = descripcionDestino;
+    }
 }
