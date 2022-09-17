@@ -14,6 +14,10 @@ INSERT INTO `DB_Tienda_Huevos`.`motivos` (`descripcion`) VALUES ('Roto');
 INSERT INTO `DB_Tienda_Huevos`.`motivos` (`descripcion`) VALUES ('Perdido');
 INSERT INTO `DB_Tienda_Huevos`.`motivos` (`descripcion`) VALUES ('Otro');
 
+ALTER TABLE `DB_Tienda_Huevos`.`motivos` 
+CHANGE COLUMN `descripcion` `descripcion` VARCHAR(45) NOT NULL ,
+ADD UNIQUE INDEX `descripcion_UNIQUE` (`descripcion` ASC) VISIBLE;
+;
 -- -----------------------------------------------------------------------------------------------------------------
 -- -------------------------------------------- Tabla Bodegas ------------------------------------------------------
 
