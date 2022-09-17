@@ -35,11 +35,20 @@ public class IngresosBodega {
 
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="id_producto")
-    private Productos idProducto;
+    @JoinColumn(name="descripcion")
+    private Productos descripcionProducto;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="id_ubicacion")
-    private Ubicaciones idUbicacion;
+    @JoinColumn(name="posicion")
+    private Ubicaciones posicionUbicaciones;
 
+    public IngresosBodega(String factura, String observaciones, String fecha, Integer cantidad, Double valorUnitario, Productos descripcionProducto, Ubicaciones posicionUbicaciones) {
+        this.factura = factura;
+        this.observaciones = observaciones;
+        this.fecha = fecha;
+        this.cantidad = cantidad;
+        this.valorUnitario = valorUnitario;
+        this.descripcionProducto = descripcionProducto;
+        this.posicionUbicaciones = posicionUbicaciones;
+    }
 }
