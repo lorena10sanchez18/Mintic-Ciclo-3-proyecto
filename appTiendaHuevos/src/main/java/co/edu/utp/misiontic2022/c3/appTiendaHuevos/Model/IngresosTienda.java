@@ -25,11 +25,17 @@ public class IngresosTienda {
     private Integer cantidad;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="id_producto")
-    private Productos idProducto;
+    @JoinColumn(name="descripcion")
+    private Productos descripcionProducto;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="id_ubicacion")
-    private Ubicaciones idUbicacion;
+    @JoinColumn(name="posicion")
+    private Ubicaciones posicionUbicaciones;
 
+    public IngresosTienda(String fecha, Integer cantidad, Productos descripcionProducto, Ubicaciones posicionUbicaciones) {
+        this.fecha = fecha;
+        this.cantidad = cantidad;
+        this.descripcionProducto = descripcionProducto;
+        this.posicionUbicaciones = posicionUbicaciones;
+    }
 }
