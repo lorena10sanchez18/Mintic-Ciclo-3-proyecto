@@ -28,13 +28,13 @@ public class Ventas {
     private Double valorTotal;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="id_producto")
-    private Productos idProducto;
+    @JoinColumn(name="descripcion")
+    private Productos descripcionProducto;
 
-    public Ventas(String fecha, Integer cantidad, Double valorTotal, Productos idProducto) {
+    public Ventas(String fecha, Integer cantidad, Double valorTotal, Productos descripcionProducto) {
         this.fecha = fecha;
         this.cantidad = cantidad;
         this.valorTotal = valorTotal;
-        this.idProducto = idProducto;
+        this.descripcionProducto = descripcionProducto;
     }
 }
