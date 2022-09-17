@@ -27,6 +27,10 @@ SELECT * FROM bodegas;
 INSERT INTO `DB_Tienda_Huevos`.`bodegas` (`descripcion`) VALUES ('Bodega');
 INSERT INTO `DB_Tienda_Huevos`.`bodegas` (`descripcion`) VALUES ('Tienda');
 
+ALTER TABLE `DB_Tienda_Huevos`.`bodegas` 
+CHANGE COLUMN `descripcion` `descripcion` VARCHAR(45) NOT NULL ,
+ADD UNIQUE INDEX `descripcion_UNIQUE` (`descripcion` ASC) VISIBLE;
+;
 -- -----------------------------------------------------------------------------------------------------------------
 -- -------------------------------------------- Tabla Productos ----------------------------------------------------
 
