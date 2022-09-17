@@ -19,19 +19,19 @@ public class AjustesInventario {
     private Integer idAjusteInventario;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="id_producto")
-    private Productos idProducto;
+    @JoinColumn(name="descripcion")
+    private Productos descripcionProducto;
 
     @Column(name = "fecha",  nullable = false,  length = 15)
     private String fecha;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="id_bodega")
-    private Bodegas idBodega;
+    @JoinColumn(name="descripcion")
+    private Bodegas descripcionBodega;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="id_motivo")
-    private Motivos idMotivo;
+    @JoinColumn(name="descripcion")
+    private Motivos desctipcionMotivo;
 
     @Column(name = "cantidad",  nullable = false)
     private Integer cantidad;
@@ -39,4 +39,12 @@ public class AjustesInventario {
     @Column(name = "observaciones",  nullable = false,  length = 200)
     private String observaciones;
 
+    public AjustesInventario(Productos descripcionProducto, String fecha, Bodegas descripcionBodega, Motivos desctipcionMotivo, Integer cantidad, String observaciones) {
+        this.descripcionProducto = descripcionProducto;
+        this.fecha = fecha;
+        this.descripcionBodega = descripcionBodega;
+        this.desctipcionMotivo = desctipcionMotivo;
+        this.cantidad = cantidad;
+        this.observaciones = observaciones;
+    }
 }
