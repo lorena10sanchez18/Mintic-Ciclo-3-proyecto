@@ -82,6 +82,11 @@ INSERT INTO `DB_Tienda_Huevos`.`ubicaciones` (`posicion`) VALUES ('T-E1');
 INSERT INTO `DB_Tienda_Huevos`.`ubicaciones` (`posicion`) VALUES ('T-F1');
 INSERT INTO `DB_Tienda_Huevos`.`ubicaciones` (`posicion`) VALUES ('T-TRANSITO');
 
+ALTER TABLE `DB_Tienda_Huevos`.`ubicaciones` 
+CHANGE COLUMN `posicion` `posicion` VARCHAR(45) NOT NULL ,
+ADD UNIQUE INDEX `posicion_UNIQUE` (`posicion` ASC) VISIBLE;
+;
+
 -- -----------------------------------------------------------------------------------------------------------------
 -- -------------------------------------------- Tabla Usuarios -----------------------------------------------------
 
