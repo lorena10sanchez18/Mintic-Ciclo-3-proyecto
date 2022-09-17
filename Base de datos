@@ -120,6 +120,28 @@ CREATE TABLE `ventas` (
 -- DROP TABLE ventas;
 SELECT * FROM ventas;
 
+INSERT INTO `DB_Tienda_Huevos`.`ventas` (`fecha`, `cantidad`, `valor_total`, `id_producto`) VALUES ('2022/09/10', '10', '5000', '1');
+INSERT INTO `DB_Tienda_Huevos`.`ventas` (`fecha`, `cantidad`, `valor_total`, `id_producto`) VALUES ('2022/09/01', '30', '15000', '1');
+INSERT INTO `DB_Tienda_Huevos`.`ventas` (`fecha`, `cantidad`, `valor_total`, `id_producto`) VALUES ('2022/09/01', '15', '8250', '2');
+INSERT INTO `DB_Tienda_Huevos`.`ventas` (`fecha`, `cantidad`, `valor_total`, `id_producto`) VALUES ('2022/09/01', '45', '20250', '5');
+INSERT INTO `DB_Tienda_Huevos`.`ventas` (`fecha`, `cantidad`, `valor_total`, `id_producto`) VALUES ('2022/09/01', '15', '7550', '1');
+INSERT INTO `DB_Tienda_Huevos`.`ventas` (`fecha`, `cantidad`, `valor_total`, `id_producto`) VALUES ('2022/09/02', '10', '5500', '2');
+INSERT INTO `DB_Tienda_Huevos`.`ventas` (`fecha`, `cantidad`, `valor_total`, `id_producto`) VALUES ('2022/09/02', '10', '6000', '6');
+INSERT INTO `DB_Tienda_Huevos`.`ventas` (`fecha`, `cantidad`, `valor_total`, `id_producto`) VALUES ('2022/09/02', '15', '9750', '4');
+INSERT INTO `DB_Tienda_Huevos`.`ventas` (`fecha`, `cantidad`, `valor_total`, `id_producto`) VALUES ('2022/09/03', '30', '15000', '1');
+INSERT INTO `DB_Tienda_Huevos`.`ventas` (`fecha`, `cantidad`, `valor_total`, `id_producto`) VALUES ('2022/09/03', '15', '8250', '2');
+INSERT INTO `DB_Tienda_Huevos`.`ventas` (`fecha`, `cantidad`, `valor_total`, `id_producto`) VALUES ('2022/09/03', '45', '20250', '5');
+INSERT INTO `DB_Tienda_Huevos`.`ventas` (`fecha`, `cantidad`, `valor_total`, `id_producto`) VALUES ('2022/09/03', '15', '7550', '1');
+INSERT INTO `DB_Tienda_Huevos`.`ventas` (`fecha`, `cantidad`, `valor_total`, `id_producto`) VALUES ('2022/09/04', '10', '5500', '2');
+INSERT INTO `DB_Tienda_Huevos`.`ventas` (`fecha`, `cantidad`, `valor_total`, `id_producto`) VALUES ('2022/09/04', '10', '6000', '6');
+INSERT INTO `DB_Tienda_Huevos`.`ventas` (`fecha`, `cantidad`, `valor_total`, `id_producto`) VALUES ('2022/09/04', '20', '12000', '6');
+INSERT INTO `DB_Tienda_Huevos`.`ventas` (`fecha`, `cantidad`, `valor_total`, `id_producto`) VALUES ('2022/09/04', '30', '18000', '6');
+INSERT INTO `DB_Tienda_Huevos`.`ventas` (`fecha`, `cantidad`, `valor_total`, `id_producto`) VALUES ('2022/09/04', '40', '24000', '6');
+INSERT INTO `DB_Tienda_Huevos`.`ventas` (`fecha`, `cantidad`, `valor_total`, `id_producto`) VALUES ('2022/09/05', '40', '12000', '7');
+INSERT INTO `DB_Tienda_Huevos`.`ventas` (`fecha`, `cantidad`, `valor_total`, `id_producto`) VALUES ('2022/09/05', '20', '11000', '2');
+INSERT INTO `DB_Tienda_Huevos`.`ventas` (`fecha`, `cantidad`, `valor_total`, `id_producto`) VALUES ('2022/09/10', '30', '15100', '1');
+INSERT INTO `DB_Tienda_Huevos`.`ventas` (`fecha`, `cantidad`, `valor_total`, `id_producto`) VALUES ('2022/09/10', '45', '20250', '5');
+
 -- -----------------------------------------------------------------------------------------------------------------
 -- -------------------------------------------- Tabla Ingresos_Bodega ---------------------------------------------- 
 CREATE TABLE `ingresos_bodega` (
