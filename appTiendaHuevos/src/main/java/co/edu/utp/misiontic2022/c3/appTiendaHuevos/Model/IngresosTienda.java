@@ -1,15 +1,18 @@
 package co.edu.utp.misiontic2022.c3.appTiendaHuevos.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "fieldHandler"})
 @Table(name = "ingresos_tienda")
 
 public class IngresosTienda {
@@ -19,23 +22,23 @@ public class IngresosTienda {
     private Integer idIngresoTienda;
 
     @Column(name = "fecha",  nullable = false,  length = 15)
-    private String fecha;
+    private Date fecha;
 
     @Column(name = "cantidad",  nullable = false)
     private Integer cantidad;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="descripcion")
+    @JoinColumn(name="id_productos",insertable= false, updatable= false)
     private Productos descripcionProducto;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="posicion")
-    private Ubicaciones posicionUbicaciones;
+    @JoinColumn(name="id_ubicacion")
+    private Ubicaciones posicion;
 
-    public IngresosTienda(String fecha, Integer cantidad, Productos descripcionProducto, Ubicaciones posicionUbicaciones) {
+    public IngresosTienda(Date fecha, Integer cantidad, Productos descripcionProducto, Ubicaciones posicionUbicaciones) {
         this.fecha = fecha;
         this.cantidad = cantidad;
         this.descripcionProducto = descripcionProducto;
-        this.posicionUbicaciones = posicionUbicaciones;
+        this.posicion = posicionUbicaciones;
     }
 }

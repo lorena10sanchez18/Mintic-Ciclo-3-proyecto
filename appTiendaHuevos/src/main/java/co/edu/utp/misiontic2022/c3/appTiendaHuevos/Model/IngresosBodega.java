@@ -1,15 +1,18 @@
 package co.edu.utp.misiontic2022.c3.appTiendaHuevos.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "fieldHandler"})
 @Table(name = "ingresos_bodega")
 
 public class IngresosBodega {
@@ -25,7 +28,7 @@ public class IngresosBodega {
     private String observaciones;
 
     @Column(name = "fecha",  nullable = false,  length = 15)
-    private String fecha;
+    private Date fecha;
 
     @Column(name = "cantidad",  nullable = false)
     private Integer cantidad;
@@ -35,20 +38,20 @@ public class IngresosBodega {
 
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="descripcion")
-    private Productos descripcionProducto;
+    @JoinColumn(name="id_productos",insertable= false, updatable= false)
+    private Productos descripcionProductos;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="posicion")
-    private Ubicaciones posicionUbicaciones;
+    @JoinColumn(name="id_ubicacion")
+    private Ubicaciones posicion;
 
-    public IngresosBodega(String factura, String observaciones, String fecha, Integer cantidad, Double valorUnitario, Productos descripcionProducto, Ubicaciones posicionUbicaciones) {
+    public IngresosBodega(String factura, String observaciones, Date fecha, Integer cantidad, Double valorUnitario, Productos descripcionProducto, Ubicaciones posicionUbicaciones) {
         this.factura = factura;
         this.observaciones = observaciones;
         this.fecha = fecha;
         this.cantidad = cantidad;
         this.valorUnitario = valorUnitario;
-        this.descripcionProducto = descripcionProducto;
-        this.posicionUbicaciones = posicionUbicaciones;
+        this.descripcionProductos = descripcionProducto;
+        this.posicion = posicionUbicaciones;
     }
 }

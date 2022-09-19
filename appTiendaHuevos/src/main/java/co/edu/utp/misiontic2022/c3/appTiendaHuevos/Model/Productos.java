@@ -1,5 +1,6 @@
 package co.edu.utp.misiontic2022.c3.appTiendaHuevos.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,7 +11,8 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "productos", indexes = {@Index(columnList = "descripcion")})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "fieldHandler"})
+@Table(name = "productos", indexes = {@Index(columnList = "descripcion_productos")})
 public class Productos {
 
     @Id
@@ -18,11 +20,14 @@ public class Productos {
     @Column(name = "id_producto",  nullable = false, unique = true)
     private Integer idProducto;
 
-    @Column(name = "descripcion",  nullable = false,  length = 45, unique = true)
-    private String descripcion;
+    @Column(name = "descripcion_productos",  nullable = false,  length = 45, unique = true,insertable= false, updatable= false)
+    private String descripcionProductos;
 
-    public Productos(String descripcion) {
-        this.descripcion = descripcion;
+    @Column(name = "valor_venta", nullable = false)
+    private Double valorVenta;
+
+    public Productos(String descripcionProductos, Double valorVenta) {
+        this.descripcionProductos = descripcionProductos;
+        this.valorVenta = valorVenta;
     }
-
 }
