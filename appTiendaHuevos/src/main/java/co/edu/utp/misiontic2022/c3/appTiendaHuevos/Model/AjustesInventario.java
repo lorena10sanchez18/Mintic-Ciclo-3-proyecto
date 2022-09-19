@@ -1,15 +1,18 @@
 package co.edu.utp.misiontic2022.c3.appTiendaHuevos.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "fieldHandler"})
 @Table(name = "ajustes_inventario")
 public class AjustesInventario {
 
@@ -19,18 +22,18 @@ public class AjustesInventario {
     private Integer idAjusteInventario;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="descripcion")
-    private Productos descripcionProducto;
+    @JoinColumn(name="id_productos")
+    private Productos descripcionProductos;
 
     @Column(name = "fecha",  nullable = false,  length = 15)
-    private String fecha;
+    private Date fecha;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="descripcion")
+    @JoinColumn(name="id_bodega")
     private Bodegas descripcionBodega;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="descripcion")
+    @JoinColumn(name="id_motivos")
     private Motivos desctipcionMotivo;
 
     @Column(name = "cantidad",  nullable = false)
@@ -39,8 +42,8 @@ public class AjustesInventario {
     @Column(name = "observaciones",  nullable = false,  length = 200)
     private String observaciones;
 
-    public AjustesInventario(Productos descripcionProducto, String fecha, Bodegas descripcionBodega, Motivos desctipcionMotivo, Integer cantidad, String observaciones) {
-        this.descripcionProducto = descripcionProducto;
+    public AjustesInventario(Productos descripcionProducto, Date fecha, Bodegas descripcionBodega, Motivos desctipcionMotivo, Integer cantidad, String observaciones) {
+        this.descripcionProductos = descripcionProducto;
         this.fecha = fecha;
         this.descripcionBodega = descripcionBodega;
         this.desctipcionMotivo = desctipcionMotivo;
