@@ -23,11 +23,11 @@
       "dom"
     ],"paths": {
         "@env":["src/environments/environment"],
-        "@auth/*":["app/auth/*"],
-        "@components/*":["app/components/*"],
-        "@containers/*":["app/containers/*"],
-        "@core/*":["app/core/*"],
-        "@shared/*":["app/shared/*"]
+        "@auth/*":["src/app/auth/*"],
+        "@components/*":["src/app/components/*"],
+        "@containers/*":["src/app/containers/*"],
+        "@core/*":["src/app/core/*"],
+        "@shared/*":["src/app/shared/*"]
       }
   },
   "angularCompilerOptions": {
