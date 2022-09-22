@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ContainersRoutingModule } from './containers-routing.module';
 import { InventariosComponent } from './administrador/components/inventarios/inventarios.component';
 import { VentasComponent } from './administrador/components/ventas/ventas.component';
 import { AjusteInventarioComponent } from './administrador/components/ajuste-inventario/ajuste-inventario.component';
@@ -30,8 +29,7 @@ import { CajaComponent } from './vendedor/components/caja/caja.component';
     CajaComponent
   ],
   imports: [
-    CommonModule,
-    ContainersRoutingModule
+    CommonModule
   ]
 })
 export class ContainersModule { }
