@@ -15,7 +15,6 @@ import java.util.List;
 @CrossOrigin(origins = "http:/localhost:4200")
 public class VentasController {
     public final VentasServices ventasServices;
-
     public VentasController(VentasServices ventasServices) {
         this.ventasServices = ventasServices;
     }
@@ -26,7 +25,6 @@ public class VentasController {
                 Date.valueOf(body.get("fechaInicial").asText()),
                 Date.valueOf(body.get("fechaFinal").asText()));
         return listaVentas;
-
     }
 
     @PostMapping("/admin/total-ventas")
