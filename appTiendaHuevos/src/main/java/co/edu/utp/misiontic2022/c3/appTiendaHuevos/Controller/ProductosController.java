@@ -19,18 +19,8 @@ public class ProductosController {
         this.productosServices = productosServices;
     }
 
-    @GetMapping("/mostrarproductos")
+    @GetMapping("/mostrar-productos")
     public List<Productos> buscarProductos() {
         return (productosServices.buscarProductos());
     }
-
-
-    @GetMapping("/mostrarproducto")
-    public ResponseEntity<Productos> buscarProducto() {
-        return new ResponseEntity<Productos>(
-                productosServices.buscarProductos().get(0),
-                HttpStatus.OK);
-    }
-
-
 }

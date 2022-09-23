@@ -16,11 +16,20 @@ public class AjusteInventarioServices implements IAjusteInventarioGateway {
     }
 
     @Override
-    public Void insertarAjustesInventario(Integer id_producto, Date fecha, Integer id_bodega, Integer id_motivo, Integer cantidad, String observaciones) {
-        iAjusteInventarioRepository.insertarAjustesInventario(id_producto,  fecha,  id_bodega,  id_motivo,  cantidad,  observaciones);
-        System.out.println("----------------------------------------");
-        System.out.println(fecha);
-        System.out.println("----------------------------------------");
+    public Void insertarAjustesInventario(
+            Integer descripcionProductos,
+            Date fecha,
+            Integer descripcionBodega,
+            Integer desctipcionMotivo,
+            Integer cantidad,
+            String observaciones) {
+        iAjusteInventarioRepository.insertarAjustesInventario(
+                descripcionProductos,
+                fecha,
+                descripcionBodega,
+                desctipcionMotivo,
+                cantidad,
+                observaciones);
         return null;
     }
 }

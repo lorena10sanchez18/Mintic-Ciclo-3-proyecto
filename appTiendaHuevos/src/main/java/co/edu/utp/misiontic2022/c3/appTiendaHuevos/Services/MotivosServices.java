@@ -16,7 +16,7 @@ public class MotivosServices implements IMotivosGateway {
     }
 
     @Override
-    public List <Motivos> buscarMotivos(){
+    public List<Motivos> buscarMotivos(){
         return iMotivosRepository.buscarMotivos();
     }
 

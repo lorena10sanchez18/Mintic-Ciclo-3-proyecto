@@ -20,9 +20,9 @@ public class MotivosController {
         this.motivosServices = motivosServices;
     }
 
-    @GetMapping("/mostrarmotivos")
+    @GetMapping("/mostrar-motivos")
     public List<Motivos> buscarMotivos() {
-        return(motivosServices.buscarMotivos());
+        return (motivosServices.buscarMotivos());
     }
 
 }
