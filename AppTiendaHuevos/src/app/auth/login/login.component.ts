@@ -42,10 +42,13 @@ export class LoginComponent implements OnInit {
 
     this.services.ingresoApp(this.login).subscribe((respuestaback) => {
       this.respuesta = respuestaback;
+      this.validarRol();
       // console.log(this.login);
       // console.log(this.respuesta);
     });
-
+  }
+  
+  validarRol(){
     if (JSON.stringify(this.respuesta).includes(this.admin)) {
       this.router.navigate(['admin/home']);
     } else if (JSON.stringify(this.respuesta).includes(this.aux)) {

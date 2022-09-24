@@ -3,22 +3,32 @@ import { CommonModule } from '@angular/common';
 
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
-import { MenuComponent } from './components/menu/menu.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MenuAuxComponent } from './components/menu-aux/menu-aux.component';
+import { MenuVentasComponent } from './components/menu-ventas/menu-ventas.component';
+import { MenuAdminComponent } from './components/menu-admin/menu-admin.component';
 
 
 @NgModule({
   declarations: [
     FooterComponent,
     HeaderComponent,
-    MenuComponent
+    MenuAuxComponent,
+    MenuVentasComponent,
+    MenuAdminComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule
   ],
   exports:[
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MenuAuxComponent,
+    MenuVentasComponent,
+    MenuAdminComponent,
+    FooterComponent,
+    HeaderComponent
+
   ]
 })
 export class SharedModule { }
