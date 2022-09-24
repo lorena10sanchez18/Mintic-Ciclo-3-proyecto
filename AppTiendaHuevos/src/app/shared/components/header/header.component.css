@@ -1,0 +1,20 @@
+header{
+    display: flex;
+    align-items: center;
+}
+.logo{
+    display: flex;
+    border: 1px solid gainsboro;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 300px;
+}
+.titulo{
+    font-size: 20px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}

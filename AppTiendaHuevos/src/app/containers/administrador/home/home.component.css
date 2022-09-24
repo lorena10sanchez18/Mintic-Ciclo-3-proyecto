@@ -1,0 +1,24 @@
+.grid-container{
+    display: grid;
+    grid-template:
+    "header header"    100px
+    "menu horarios"    auto
+    "footer footer"    40px;
+    background-color: gainsboro;
+
+}.header{
+    grid-area: header;
+}
+.menu{
+    grid-area: menu;
+}
+.horarios{
+    grid-area: horarios;
+}
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: footer;
+}
+

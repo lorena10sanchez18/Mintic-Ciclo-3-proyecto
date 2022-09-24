@@ -10,6 +10,7 @@ import { ActualizarProductoComponent } from './actualizar-producto/actualizar-pr
 import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
 import { ActualizarUsuarioComponent } from './actualizar-usuario/actualizar-usuario.component';
 import { HomeComponent } from './home/home.component';
+import { SharedModule } from '@shared/shared.module';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { HomeComponent } from './home/home.component';
   ],
   imports: [
     CommonModule,
-    AdministradorRoutingModule
+    AdministradorRoutingModule,
+    SharedModule
   ]
 })
 export class AdministradorModule { }
