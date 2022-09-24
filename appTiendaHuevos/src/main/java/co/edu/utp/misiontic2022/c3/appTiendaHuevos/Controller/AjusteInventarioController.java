@@ -8,7 +8,7 @@ import java.sql.Date;
 
 @RestController
 @RequestMapping(path = "/api")
-@CrossOrigin(origins = "http:/localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200")
 
 public class AjusteInventarioController {
 
@@ -18,7 +18,7 @@ public class AjusteInventarioController {
         this.ajusteInventarioServices = ajusteInventarioServices;
     }
 
-    @PostMapping("/insertar-ajuste-inventario")
+    @PostMapping("/ ")
     public String insertarAjustesInventario(@RequestBody JsonNode body) {
         ajusteInventarioServices.insertarAjustesInventario(
                 body.get("descripcionProductos").asInt(),
