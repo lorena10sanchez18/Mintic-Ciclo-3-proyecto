@@ -6,6 +6,7 @@ import { InventarioComponent } from './inventario/inventario.component';
 import { TrasladoMercanciaComponent } from './traslado-mercancia/traslado-mercancia.component';
 import { CajaComponent } from './caja/caja.component';
 import { HomeComponent } from './home/home.component';
+import { SharedModule } from '@shared/shared.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { HomeComponent } from './home/home.component';
   ],
   imports: [
     CommonModule,
-    VendedorRoutingModule
+    VendedorRoutingModule,
+    SharedModule
   ]
 })
 export class VendedorModule { }
