@@ -2,10 +2,7 @@ package co.edu.utp.misiontic2022.c3.appTiendaHuevos.Controller;
 
 import co.edu.utp.misiontic2022.c3.appTiendaHuevos.Services.ProductosServices;
 import co.edu.utp.misiontic2022.c3.appTiendaHuevos.Model.Productos;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -23,4 +20,12 @@ public class ProductosController {
     public List<Productos> buscarProductos() {
         return (productosServices.buscarProductos());
     }
+
+    @PostMapping("/insertar-producto")
+    public String insertarProducto(@RequestBody Productos producto) {
+        productosServices.insertarProducto(producto);
+        return "Se creo con exito el producto";
+    }
+
+
 }
