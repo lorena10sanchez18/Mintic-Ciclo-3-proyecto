@@ -10,10 +10,8 @@
                 <p class="text-white-50 mb-5">
                   Por favor ingrese su usuario y contraseña!
                 </p>
-
                 <div class="form-outline form-white mb-4">
                   <input
-                    type="email"
                     id="typeEmailX"
                     class="form-control form-control-lg"
                     formControlName="usuario"
@@ -34,7 +32,8 @@
                 </div>
 
                 <button
-                  (click)= "iniciarSesion()"
+                  [disabled]= "formularioLogin.value.contrasenia == '' && formularioLogin.value.usuario == '' "
+                  (click)="iniciarSesion()"
                   class="btn btn-outline-light btn-lg px-5"
                   type="submit"
                   type="reset"

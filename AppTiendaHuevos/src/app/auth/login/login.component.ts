@@ -45,8 +45,8 @@ export class LoginComponent implements OnInit {
       this.validarRol();
     });
   }
-  
-  validarRol(){
+
+  validarRol() {
     if (JSON.stringify(this.respuesta).includes(this.admin)) {
       this.router.navigate(['admin/home']);
     } else if (JSON.stringify(this.respuesta).includes(this.aux)) {
