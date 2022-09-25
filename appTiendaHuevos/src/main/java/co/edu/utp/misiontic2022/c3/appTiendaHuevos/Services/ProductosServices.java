@@ -17,6 +17,11 @@ public class ProductosServices implements IProductosGateway {
     @Override
     public List<Productos> buscarProductos() {
         return iProductosRepository.buscarProductos();
-
     }
+
+     @Override
+    public void insertarProducto(Productos producto){
+        iProductosRepository.save(producto);
+    }
+
 }
