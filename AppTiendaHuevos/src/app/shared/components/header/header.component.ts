@@ -1,14 +1,16 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  
-  constructor() { }
+  constructor(private router: Router) {}
   @Input()
   titulo!: string;
-
+  logOut(){
+    this.router.navigate(['login']);
+  }
 }

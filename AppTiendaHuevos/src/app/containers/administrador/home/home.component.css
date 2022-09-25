@@ -1,28 +1,3 @@
-.grid-container{
-    display: grid;
-    grid-template:
-    "header header"      auto
-    "menu   contenido"   auto
-    "footer footer"      auto;
-    background-color: gainsboro;
-    grid-template-columns: 300px;
-
-}.header{
-    grid-area: header;
-}
-.menu{
-    grid-area: menu;    
-}
-.contenido{
-    grid-area: contenido;
-    height: 500px;    
-}
-.footer{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    grid-area: footer;
-}
 .logo-g{
     width: 900px;
     margin-left: 80px;
