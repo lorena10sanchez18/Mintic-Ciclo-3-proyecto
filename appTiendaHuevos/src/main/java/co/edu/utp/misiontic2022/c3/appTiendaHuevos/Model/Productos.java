@@ -20,7 +20,7 @@ public class Productos {
     @Column(name = "id_producto",  nullable = false, unique = true)
     private Integer idProducto;
 
-    @Column(name = "descripcion_productos",  nullable = false,  length = 45, unique = true,insertable= false, updatable= false)
+    @Column(name = "descripcion_productos",  nullable = false,  length = 45, unique = true)
     private String descripcionProductos;
 
     @Column(name = "valor_venta", nullable = false)

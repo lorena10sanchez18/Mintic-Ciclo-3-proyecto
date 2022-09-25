@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface IProductosGateway {
     List<Productos> buscarProductos();
+
+    void insertarProducto(Productos producto);
 }

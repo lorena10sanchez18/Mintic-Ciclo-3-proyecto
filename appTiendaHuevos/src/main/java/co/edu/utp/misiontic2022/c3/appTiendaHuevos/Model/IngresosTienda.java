@@ -28,7 +28,7 @@ public class IngresosTienda {
     private Integer cantidad;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="id_productos",insertable= false, updatable= false)
+    @JoinColumn(name="id_productos")
     private Productos descripcionProducto;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

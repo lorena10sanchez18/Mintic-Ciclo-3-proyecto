@@ -38,7 +38,7 @@ public class IngresosBodega {
 
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="id_productos",insertable= false, updatable= false)
+    @JoinColumn(name="id_productos")
     private Productos descripcionProductos;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

@@ -18,7 +18,7 @@ public class AjusteInventarioController {
         this.ajusteInventarioServices = ajusteInventarioServices;
     }
 
-    @PostMapping("/ ")
+    @PostMapping("/insertar-ajuste-inventario")
     public String insertarAjustesInventario(@RequestBody JsonNode body) {
         ajusteInventarioServices.insertarAjustesInventario(
                 body.get("descripcionProductos").asInt(),

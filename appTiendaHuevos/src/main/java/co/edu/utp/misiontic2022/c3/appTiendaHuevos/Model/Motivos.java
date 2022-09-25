@@ -19,7 +19,7 @@ public class Motivos {
     @Column(name = "id_motivo",  nullable = false, unique = true)
     private Integer idMotivo;
 
-    @Column(name = "descripcion_motivos",  nullable = false,  length = 45, unique = true,insertable= false, updatable= false)
+    @Column(name = "descripcion_motivos",  nullable = false,  length = 45, unique = true)
     private String descripcion;
 
     public Motivos(String descripcion) {
