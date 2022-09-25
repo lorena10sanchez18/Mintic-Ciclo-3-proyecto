@@ -43,8 +43,6 @@ export class LoginComponent implements OnInit {
     this.services.ingresoApp(this.login).subscribe((respuestaback) => {
       this.respuesta = respuestaback;
       this.validarRol();
-      // console.log(this.login);
-      // console.log(this.respuesta);
     });
   }
   
