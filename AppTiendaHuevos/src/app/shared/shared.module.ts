@@ -8,27 +8,22 @@ import { MenuAuxComponent } from './components/menu-aux/menu-aux.component';
 import { MenuVentasComponent } from './components/menu-ventas/menu-ventas.component';
 import { MenuAdminComponent } from './components/menu-admin/menu-admin.component';
 
-
 @NgModule({
   declarations: [
     FooterComponent,
     HeaderComponent,
     MenuAuxComponent,
     MenuVentasComponent,
-    MenuAdminComponent
+    MenuAdminComponent,
   ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule
-  ],
-  exports:[
+  imports: [CommonModule, ReactiveFormsModule],
+  exports: [
     ReactiveFormsModule,
     MenuAuxComponent,
     MenuVentasComponent,
     MenuAdminComponent,
     FooterComponent,
-    HeaderComponent
-
-  ]
+    HeaderComponent,
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

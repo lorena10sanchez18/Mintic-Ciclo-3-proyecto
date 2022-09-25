@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-admin',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu-admin.component.css']
 })
 export class MenuAdminComponent implements OnInit {
+  
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    
   }
-
+  irInventarios(){
+    this.router.navigate(['admin/inventarios']);
+  }
+  
 }

@@ -2,23 +2,22 @@
   <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
       <button
-        class="accordion-button"
+        class="accordion-button collapsed"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#panelsStayOpen-collapseOne"
-        aria-expanded="false"
         aria-controls="panelsStayOpen-collapseOne"
       >
-        Infomres
+        Informes
       </button>
     </h2>
     <div
       id="panelsStayOpen-collapseOne"
-      class="accordion-collapse collapse show"
+      class="accordion-collapse collapse"
       aria-labelledby="panelsStayOpen-headingOne"
     >
       <div class="accordion-body">
-        <button type="button" class="btn btn-warning" href="#">
+        <button type="button" class="btn btn-warning" (click)="irInventarios()">
           Inventarios
         </button>
         <p></p>
@@ -26,6 +25,7 @@
       </div>
     </div>
   </div>
+
   <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
       <button
@@ -33,7 +33,6 @@
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#panelsStayOpen-collapseTwo"
-        aria-expanded="true"
         aria-controls="panelsStayOpen-collapseTwo"
       >
         Bodega
@@ -51,6 +50,7 @@
       </div>
     </div>
   </div>
+
   <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingThree">
       <button
@@ -58,7 +58,6 @@
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#panelsStayOpen-collapseThree"
-        aria-expanded="true"
         aria-controls="panelsStayOpen-collapseThree"
       >
         Producto
@@ -77,33 +76,31 @@
         </button>
       </div>
     </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="panelsStayOpen-headingFour">
-        <button
-          class="accordion-button collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#panelsStayOpen-collapseFour"
-          aria-expanded="true"
-          aria-controls="panelsStayOpen-collapseFour"
-        >
-          Usuarios
-        </button>
-      </h2>
-      <div
-        id="panelsStayOpen-collapseFour"
-        class="accordion-collapse collapse"
-        aria-labelledby="panelsStayOpen-headingFour"
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#panelsStayOpen-collapseFour"
+        aria-controls="panelsStayOpen-collapseFour"
       >
-        <div class="accordion-body">
-          <button type="button" class="btn btn-warning" href="#">
-            Crear
-          </button>
-          <p></p>
-          <button type="button" class="btn btn-warning" href="#">
-            Actualizar
-          </button>
-        </div>
+        Usuarios
+      </button>
+    </h2>
+    <div
+      id="panelsStayOpen-collapseFour"
+      class="accordion-collapse collapse"
+      aria-labelledby="panelsStayOpen-headingFour"
+    >
+      <div class="accordion-body">
+        <button type="button" class="btn btn-warning" href="#">Crear</button>
+        <p></p>
+        <button type="button" class="btn btn-warning" href="#">
+          Actualizar
+        </button>
       </div>
     </div>
   </div>
