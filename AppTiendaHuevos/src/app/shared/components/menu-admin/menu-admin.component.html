@@ -21,7 +21,9 @@
           Inventarios
         </button>
         <p></p>
-        <button type="button" class="btn btn-warning" href="#">Ventas</button>
+        <button type="button" class="btn btn-warning" (click)="irVentas()">
+          Ventas
+        </button>
       </div>
     </div>
   </div>
@@ -44,7 +46,7 @@
       aria-labelledby="panelsStayOpen-headingTwo"
     >
       <div class="accordion-body">
-        <button type="button" class="btn btn-warning" href="#">
+        <button type="button" class="btn btn-warning" (click)="irAjuste()">
           Ajuste Inventarios
         </button>
       </div>
@@ -69,9 +71,19 @@
       aria-labelledby="panelsStayOpen-headingThree"
     >
       <div class="accordion-body">
-        <button type="button" class="btn btn-warning" href="#">Crear</button>
+        <button
+          type="button"
+          class="btn btn-warning"
+          (click)="irCrearProducto()"
+        >
+          Crear
+        </button>
         <p></p>
-        <button type="button" class="btn btn-warning" href="#">
+        <button
+          type="button"
+          class="btn btn-warning"
+          (click)="irActualizarProducto()"
+        >
           Actualizar
         </button>
       </div>
@@ -96,9 +108,11 @@
       aria-labelledby="panelsStayOpen-headingFour"
     >
       <div class="accordion-body">
-        <button type="button" class="btn btn-warning" href="#">Crear</button>
+        <button type="button" class="btn btn-warning" (click)="irCrearUsuario()">
+          Crear
+        </button>
         <p></p>
-        <button type="button" class="btn btn-warning" href="#">
+        <button type="button" class="btn btn-warning" (click)="irActualizarUsuario()">
           Actualizar
         </button>
       </div>
