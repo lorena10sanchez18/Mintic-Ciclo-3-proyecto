@@ -1,6 +1,6 @@
 import { LoginService } from '@core/Services/login.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  formularioLogin: any;
+  formularioLogin: FormGroup;
   usuario!: number;
   contrasenia!: string;
   login!: {};
@@ -21,12 +21,12 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private services: LoginService,
-    private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private fb: FormBuilder
   ) {
     this.formularioLogin = this.fb.group({
-      usuario: ['', Validators.required],
-      contrasenia: ['', Validators.required],
+      usuario: ['', [Validators.required, Validators.minLength(5)]],
+      contrasenia: ['', [Validators.required]],
     });
   }
 
