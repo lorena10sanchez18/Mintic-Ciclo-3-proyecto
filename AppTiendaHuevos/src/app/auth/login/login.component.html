@@ -1,4 +1,4 @@
-<form [formGroup]= "formularioLogin">
+<form [formGroup]="formularioLogin">
   <section class="vh-100 gradient-custom">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -13,7 +13,6 @@
 
                 <div class="form-outline form-white mb-4">
                   <input
-                    type="email"
                     id="typeEmailX"
                     class="form-control form-control-lg"
                     formControlName="usuario"
@@ -34,7 +33,8 @@
                 </div>
 
                 <button
-                  (click)= "iniciarSesion()"
+                  [disabled]="formularioLogin.invalid"
+                  (click)="iniciarSesion()"
                   class="btn btn-outline-light btn-lg px-5"
                   type="submit"
                   type="reset"
