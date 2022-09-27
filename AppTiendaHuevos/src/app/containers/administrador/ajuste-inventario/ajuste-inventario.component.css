@@ -9,7 +9,7 @@
 .form-select {
   width: 250px;
   margin-left: 25px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 .input-group {
   width: 250px;
@@ -20,4 +20,8 @@
     display: flex;
     justify-content: space-around;
     margin-top: 20px;
+}
+.titulo{
+  display: flex;
+  justify-content: center;
 }

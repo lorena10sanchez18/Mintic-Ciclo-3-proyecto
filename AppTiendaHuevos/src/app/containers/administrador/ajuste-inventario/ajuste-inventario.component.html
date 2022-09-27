@@ -4,55 +4,83 @@
   </header>
   <nav class="menu"><app-menu-admin></app-menu-admin></nav>
   <article class="contenido">
-    <div id="formulario">
-      <select class="form-select" aria-label="Default select example">
-        <option selected>Tipo de producto</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
+    <form [formGroup]="formAjusteInventario">
+      <div id="formulario">
+        <span class="titulo">Tipo de producto</span>
+        <select
+          formControlName="descripcionProductos"
+          class="form-select"
+          aria-label="Default select example"
+        >
+          <option
+            *ngFor="let producto of resMostrarProductos"
+            value="{{ producto.idProducto }}"
+          >
+            {{ producto.descripcionProductos }}
+          </option>
+        </select>
 
-      <select class="form-select" aria-label="Default select example">
-        <option selected>Almacen</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
+        <span class="titulo">Bodega</span>
+        <select
+          formControlName="descripcionBodega"
+          class="form-select"
+          aria-label="Default select example"
+        >
+          <option
+            *ngFor="let bodega of resMostrarBodegas"
+            value="{{ bodega.idBodega }}"
+          >
+            {{ bodega.descripcion }}
+          </option>
+        </select>
 
-      <select class="form-select" aria-label="Default select example">
-        <option selected>Motivo</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
+        <span class="titulo">Motivo</span>
+        <select
+          formControlName="descripcionMotivo"
+          class="form-select"
+          aria-label="Default select example"
+        >
+          <option
+            *ngFor="let motivo of resMostrarMotivos"
+            value="{{ motivo.idMotivo }}"
+          >
+            {{ motivo.descripcion }}
+          </option>
+        </select>
 
-      <div class="input-group mb-3">
-        <input
-          type="number"
-          class="form-control"
-          placeholder="Cantidad"
-          aria-label="cantidad"
-          aria-describedby="basic-addon1"
-        />
+        <div class="input-group mb-3">
+          <input
+            formControlName="cantidad"
+            type="number"
+            class="form-control"
+            placeholder="Cantidad"
+            aria-label="cantidad"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+
+        <div class="input-group">
+          <textarea
+            formControlName="observaciones"
+            class="form-control"
+            rows="5"
+            placeholder="Observaciones"
+            aria-label="With textarea"
+          ></textarea>
+        </div>
+        <div id="botones">
+          <button
+            [disabled]="formAjusteInventario.invalid"
+            (click)="guardar()"
+            type="button"
+            class="btn btn-warning"
+          >
+            Guardar
+          </button>
+          <button type="button" class="btn btn-warning">Cancelar</button>
+        </div>
       </div>
-
-      <div class="input-group">
-        <textarea
-          class="form-control"
-          rows="5"
-          placeholder="Observaciones"
-          aria-label="With textarea"
-        ></textarea>
-      </div>
-      <div id="botones">
-        <button type="button" class="btn btn-warning">
-          Guardar
-        </button>
-        <button type="button" class="btn btn-warning">
-          Cancelar
-        </button>
-      </div>
-    </div>
+    </form>
   </article>
   <footer class="footer"><app-footer></app-footer></footer>
 </main>
