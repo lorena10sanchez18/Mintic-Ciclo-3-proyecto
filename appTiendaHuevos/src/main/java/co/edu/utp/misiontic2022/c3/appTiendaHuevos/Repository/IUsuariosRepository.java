@@ -13,4 +13,7 @@ public interface IUsuariosRepository extends JpaRepository<Usuarios, Integer> {
 
     @Query(value = "SELECT * FROM usuarios where cedula = :cedula and contrasenia = :contrasenia", nativeQuery = true)
     Usuarios buscarRol(@Param("cedula") Integer cedula, @Param("contrasenia") String contrasenia);
+
+
+
 }
