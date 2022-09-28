@@ -37,7 +37,7 @@ public class ProductosController {
     @PostMapping("/actualizar-valor-producto")
     public String actualizarValorProducto(@RequestBody  Productos producto) {
         productosServices.actualizarValorProducto(producto);
-        return "Se actualizo valor de venta con exito el producto";
+        return "Se actualizo el valor de venta del producto con exito";
     }
 
 
