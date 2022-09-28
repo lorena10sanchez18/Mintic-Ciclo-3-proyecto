@@ -70,13 +70,15 @@ export class AjusteInventarioComponent implements OnInit {
       cantidad: this.cantidad,
       observaciones: this.observaciones,
     };
-    console.log(this.ajuste);
     this.servicesAjusteInventario
       .insertarAjusteInventario(this.ajuste)
       .subscribe(
         (respuestaback) => (this.respuestaPostAjusteInventario = respuestaback)
       );
+    location.reload();
   }
 
-  cancelar() {}
+  cancelar() {
+    location.reload();
+  }
 }
