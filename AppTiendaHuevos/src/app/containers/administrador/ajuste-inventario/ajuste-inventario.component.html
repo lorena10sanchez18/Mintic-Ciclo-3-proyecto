@@ -74,10 +74,51 @@
             (click)="guardar()"
             type="button"
             class="btn btn-warning"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
           >
             Guardar
           </button>
-          <button type="button" class="btn btn-warning" (click)="cancelar()">Cancelar</button>
+          <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    APP tienda Huevos
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                    (click)="cancelar()"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  {{ respuestaPostAjusteInventario }}
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                    (click)="cancelar()"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn btn-warning" (click)="cancelar()">
+            Cancelar
+          </button>
         </div>
       </div>
     </form>
