@@ -9,4 +9,6 @@ public interface IUsuariosGateway {
     Usuarios buscarRol(Integer cedula, String contrasenia);
 
     void insertarUsuarios(Usuarios usuario);
+
+    void actualizarUsuarios(Usuarios usuario);
 }
