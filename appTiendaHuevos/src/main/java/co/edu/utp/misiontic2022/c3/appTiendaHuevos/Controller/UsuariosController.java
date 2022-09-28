@@ -39,4 +39,9 @@ public class UsuariosController {
         return "Se creo con exito el usuario";
     }
 
+    @PostMapping("/actualizar-usuario")
+    public String actualizarUsuarios(@RequestBody Usuarios usuario) {
+        usuariosServices.actualizarUsuarios(usuario);
+        return "Se actualizo con exito el usuario";
+    }
 }
