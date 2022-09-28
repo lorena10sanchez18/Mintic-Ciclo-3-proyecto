@@ -30,9 +30,17 @@ public class Usuarios {
     @Column(name = "rol",  nullable = false, length = 20)
     private String rol;
 
-    public Usuarios(Integer cedula, String contrasenia, String rol) {
+    @Column(name = "estado",  nullable = false, length = 10)
+    private String estado;
+
+    @Column(name = "nombre",  nullable = false, length = 45)
+    private String nombre;
+
+    public Usuarios(Integer cedula, String contrasenia, String rol, String estado, String nombre) {
         this.cedula = cedula;
         this.contrasenia = contrasenia;
         this.rol = rol;
+        this.estado = estado;
+        this.nombre = nombre;
     }
 }
