@@ -113,11 +113,11 @@ INSERT INTO `DB_Tienda_Huevos`.`usuarios` (`cedula`, `contrasenia`, `rol`) VALUE
 INSERT INTO `DB_Tienda_Huevos`.`usuarios` (`cedula`, `contrasenia`, `rol`) VALUES ('12345', '012345', 'AUXILIAR BODEGA');
 INSERT INTO `DB_Tienda_Huevos`.`usuarios` (`cedula`, `contrasenia`, `rol`) VALUES ('98765', '098765', 'VENDEDOR');
 
-ALTER TABLE `db_tienda_huevos`.`usuarios` 
+ALTER TABLE `DB_Tienda_Huevos`.`usuarios` 
 ADD COLUMN `estado` VARCHAR(45) NULL AFTER `rol`;
 
 
-ALTER TABLE `db_tienda_huevos`.`usuarios` 
+ALTER TABLE `DB_Tienda_Huevos`.`usuarios` 
 ADD COLUMN `nombre` VARCHAR(45) NULL AFTER `estado`;
 
 -- -----------------------------------------------------------------------------------------------------------------
