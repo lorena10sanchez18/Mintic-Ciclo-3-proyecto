@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {
+  APIBUSCARPRODUCTOPORNOMBRE_URL,
   APICREARPRODUCTO_URL,
   APIMOSTRARPRODUCTOS_URL,
 } from '@core/path.config';
@@ -12,6 +13,7 @@ import { Observable } from 'rxjs';
 export class ProductosService {
   private APIMOSTRARPRODUCTOS_URL = APIMOSTRARPRODUCTOS_URL;
   private APICREARPRODUCTO_URL = APICREARPRODUCTO_URL;
+  private APIBUSCARPRODUCTOPORNOMBRE_URL = APIBUSCARPRODUCTOPORNOMBRE_URL;
 
   constructor(private http: HttpClient) {}
 
@@ -24,5 +26,8 @@ export class ProductosService {
       observe: 'response',
       responseType: 'text',
     });
+  }
+  public buscarProducto(nombre:string){
+    return this.http.get(this.APIBUSCARPRODUCTOPORNOMBRE_URL + nombre)
   }
 }

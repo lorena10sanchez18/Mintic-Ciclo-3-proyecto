@@ -1,0 +1,50 @@
+.formulario {
+  height: 350px;
+  width: 300px;
+  margin-left: -75px;
+}
+.contenido {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.buscar {
+  border: 1px solid black;
+  height: 150px;
+  border-radius: 3%;
+  background-color: gray;
+}
+.mostrar {
+  border: 1px solid black;
+  height: 150px;
+  margin-top: 50px;
+  border-radius: 3%;
+  background-color: gray;
+}
+.titulo {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+.form-select{
+  width: 250px;
+  margin-left: 25px;
+}
+.input-group {
+  width: 250px;
+  margin-left: 25px;
+}
+#botoneBuscar{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+.botones{
+    display:flex;
+    justify-content: space-around;
+    /* margin-left: -10px;
+    margin-right: -12px; */
+    width: 250px;
+    margin-left: 25px;
+
+}
