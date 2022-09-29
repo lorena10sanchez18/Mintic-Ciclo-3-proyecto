@@ -10,5 +10,5 @@ export const APIINSERTARAJUSTESINVENTARIO_URL= BASE_API + '/insertar-ajuste-inve
 export const APICREARPRODUCTO_URL= BASE_API + '/insertar-producto';
 export const APICREARUSUARIO_URL= BASE_API + '/insertar-usuarios';
 export const APIBUSCARPRODUCTOPORNOMBRE_URL= BASE_API + '/mostrar-producto-por-nombre/';
-
+export const APIACTUALIZARVALORPRODUCTO_URL= BASE_API + '/actualizar-valor-producto';
 

@@ -15,20 +15,11 @@
           >
             <option
               *ngFor="let producto of resMostrarProductos"
-              value="{{ producto.idProducto }}"
+              value="{{ producto.descripcionProductos }}"
             >
               {{ producto.descripcionProductos }}
             </option>
           </select>
-          <div id="botoneBuscar">
-            <button
-              [disabled]="formularioBuscar.invalid"
-              type="button"
-              class="btn btn-warning"
-            >
-              Buscar
-            </button>
-          </div>
         </div>
       </form>
       <form [formGroup]="formularioActualizar">
@@ -46,6 +37,7 @@
           <div class="botones">
             <button
               [disabled]="formularioActualizar.invalid"
+              (click)="actualizar()"
               type="button"
               class="btn btn-warning"
               data-bs-toggle="modal"
@@ -75,7 +67,9 @@
                       aria-label="Close"
                     ></button>
                   </div>
-                  <div class="modal-body"></div>
+                  <div class="modal-body">
+                    {{ resActualizarProducto }}
+                  </div>
                   <div class="modal-footer">
                     <button
                       (click)="cancelar()"
