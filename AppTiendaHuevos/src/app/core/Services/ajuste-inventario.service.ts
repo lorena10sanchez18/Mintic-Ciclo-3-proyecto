@@ -10,6 +10,6 @@ export class AjusteInventarioService {
   private APIINSERTARAJUSTESINVENTARIO_URL= APIINSERTARAJUSTESINVENTARIO_URL
   constructor(private http: HttpClient) { }
   public insertarAjusteInventario(ajuste: any):Observable<any>{
-    return this.http.post(this.APIINSERTARAJUSTESINVENTARIO_URL,ajuste,{responseType:'text'});
+    return this.http.post(this.APIINSERTARAJUSTESINVENTARIO_URL,ajuste,{observe: 'response',responseType: 'text'});
   }
 }

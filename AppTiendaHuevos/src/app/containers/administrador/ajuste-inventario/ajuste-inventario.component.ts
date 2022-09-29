@@ -56,7 +56,7 @@ export class AjusteInventarioComponent implements OnInit {
   guardar() {
     this.descripcionProductos =
       this.formAjusteInventario.value.descripcionProductos;
-    this.fecha = new Date(Date.now()).toISOString().substring(0,10);
+    this.fecha = new Date(Date.now()).toISOString().substring(0, 10);
     this.descripcionBodega = this.formAjusteInventario.value.descripcionBodega;
     this.descripcionMotivo = this.formAjusteInventario.value.descripcionMotivo;
     this.cantidad = this.formAjusteInventario.value.cantidad;
@@ -72,13 +72,12 @@ export class AjusteInventarioComponent implements OnInit {
     };
     this.servicesAjusteInventario
       .insertarAjusteInventario(this.ajuste)
-      .subscribe(
-        (respuestaback) => (this.respuestaPostAjusteInventario = respuestaback)
-      );
-    location.reload();
+      .subscribe((response: any) => {
+        this.respuestaPostAjusteInventario = response.body;
+      });
   }
 
   cancelar() {
-    location.reload();
+    this.formAjusteInventario.reset();
   }
 }
