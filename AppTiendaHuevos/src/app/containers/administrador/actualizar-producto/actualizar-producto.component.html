@@ -3,6 +3,100 @@
     <app-header titulo="ACTUALIZAR PRODUCTO"></app-header>
   </header>
   <nav class="menu"><app-menu-admin></app-menu-admin></nav>
-  <article class="contenido"></article>
+  <article class="contenido">
+    <div class="formulario">
+      <form [formGroup]="formularioBuscar">
+        <div class="buscar">
+          <span class="titulo">Nombre del producto</span>
+          <select
+            formControlName="nombreProducto"
+            class="form-select"
+            aria-label="Default select example"
+          >
+            <option
+              *ngFor="let producto of resMostrarProductos"
+              value="{{ producto.idProducto }}"
+            >
+              {{ producto.descripcionProductos }}
+            </option>
+          </select>
+          <div id="botoneBuscar">
+            <button
+              [disabled]="formularioBuscar.invalid"
+              type="button"
+              class="btn btn-warning"
+            >
+              Buscar
+            </button>
+          </div>
+        </div>
+      </form>
+      <form [formGroup]="formularioActualizar">
+        <div class="mostrar">
+          <span class="titulo">Venta unitaria</span>
+          <div class="input-group mb-3">
+            <input
+              formControlName="ventaUnitaria"
+              type="number"
+              class="form-control"
+              aria-describedby="basic-addon1"
+            />
+          </div>
+
+          <div class="botones">
+            <button
+              [disabled]="formularioActualizar.invalid"
+              type="button"
+              class="btn btn-warning"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              Actualizar
+            </button>
+
+            <div
+              class="modal fade"
+              id="exampleModal"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      APP tienda Huevos
+                    </h5>
+                    <button
+                      (click)="cancelar()"
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body"></div>
+                  <div class="modal-footer">
+                    <button
+                      (click)="cancelar()"
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button (click)="cancelar()" type="button" class="btn btn-warning">
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </article>
   <footer class="footer"><app-footer></app-footer></footer>
 </main>
