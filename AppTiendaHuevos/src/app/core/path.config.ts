@@ -8,6 +8,7 @@ export const APIMOSTRARBODEGAS_URL= BASE_API + '/mostrar-bodegas';
 export const APIMOSTRARMOTIVOS_URL= BASE_API + '/mostrar-motivos';
 export const APIINSERTARAJUSTESINVENTARIO_URL= BASE_API + '/insertar-ajuste-inventario';
 export const APICREARPRODUCTO_URL= BASE_API + '/insertar-producto';
+export const APICREARUSUARIO_URL= BASE_API + '/insertar-usuarios';
 export const APIBUSCARPRODUCTOPORNOMBRE_URL= BASE_API + '/mostrar-producto-por-nombre/';
 
 
