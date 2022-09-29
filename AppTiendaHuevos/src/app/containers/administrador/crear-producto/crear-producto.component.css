@@ -1,0 +1,33 @@
+.contenido {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.formulario {
+  border: 1px solid white;
+  height: 250px;
+  width: 300px;
+  margin-left: -75px;
+  background-color: gray;
+  border-radius: 3%;
+}
+.titulo {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.input-group {
+  width: 250px;
+  margin-left: 25px;
+}
+#botones {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+#crear {
+  margin-left: 0px;
+}
+#cancelar {
+  margin-left: 42px;
+}
