@@ -3,6 +3,62 @@
     <app-header titulo="VENTAS"></app-header>
   </header>
   <nav class="menu"><app-menu-admin></app-menu-admin></nav>
-  <article class="contenido"></article>
+  <article class="contenido">
+    <div class="formularioCalendario">
+      <div class="desde">
+        <span class="titulo">Desde:</span>
+        <div class="input-group mb-3">
+          <input
+            formControlName=""
+            type="date"
+            class="form-control"
+            placeholder=""
+            aria-label="cantidad"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+      </div>
+      <div class="desde">
+        <span class="titulo">Hasta:</span>
+        <div class="input-group mb-3">
+          <input
+            formControlName=""
+            type="date"
+            class="form-control"
+            placeholder=""
+            aria-label="cantidad"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+      </div>
+      <button id="buscar" type="button" class="btn btn-warning">Buscar</button>
+    </div>
+    <div class="totalVentas">
+      <span id="tituloTotal">Total Ventas:</span>
+      <div class="input-group mb-3">
+        <output class="salida"> {{resTotalVentas}} </output>
+      </div>
+    </div>
+    <div class="tabla" >
+      <table class="table table-bordered border-secondary" value="!! variable del json !!">
+        <thead>
+          <tr>
+            <th scope="col">Fecha</th>
+            <th scope="col">Tipo Producto</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Costo</th>
+          </tr>
+        </thead>
+        <tbody let campo>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
   <footer class="footer"><app-footer></app-footer></footer>
 </main>
