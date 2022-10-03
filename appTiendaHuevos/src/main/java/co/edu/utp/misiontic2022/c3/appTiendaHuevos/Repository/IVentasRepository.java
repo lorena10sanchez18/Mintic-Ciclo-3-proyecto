@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public interface IVentasRepository extends JpaRepository<Ventas, Integer> {
 
-    @Query(value = "SELECT * FROM ventas WHERE fecha BETWEEN :fechaInicial AND :fechaFinal",nativeQuery = true)
+    @Query(value = "SELECT * FROM ventas WHERE fecha BETWEEN :fechaInicial AND :fechaFinal ORDER BY fecha ASC",nativeQuery = true)
     List<Ventas> buscarPorRangoFechas(@Param("fechaInicial") Date fechaInicial, @Param("fechaFinal") Date fechaFinal);
 
     @Query(value = "SELECT SUM(valor_total) FROM ventas WHERE fecha BETWEEN :fechaInicial AND :fechaFinal", nativeQuery = true)

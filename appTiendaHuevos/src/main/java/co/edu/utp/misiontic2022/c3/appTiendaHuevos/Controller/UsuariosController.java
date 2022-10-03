@@ -32,4 +32,16 @@ public class UsuariosController {
                         body.get("contrasenia").asText()),
                 HttpStatus.OK);
     }
+
+    @PostMapping("/insertar-usuarios")
+    public String insertarUsuarios(@RequestBody Usuarios usuario) {
+        usuariosServices.insertarUsuarios(usuario);
+        return "Se creo con exito el usuario";
+    }
+
+    @PostMapping("/actualizar-usuario")
+    public String actualizarUsuarios(@RequestBody Usuarios usuario) {
+        usuariosServices.actualizarUsuarios(usuario);
+        return "Se actualizo con exito el usuario";
+    }
 }

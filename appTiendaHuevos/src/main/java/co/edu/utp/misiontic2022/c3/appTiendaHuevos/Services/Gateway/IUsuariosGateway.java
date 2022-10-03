@@ -7,4 +7,8 @@ public interface IUsuariosGateway {
     Usuarios buscarUsuarioPorCedula(Integer cedula);
 
     Usuarios buscarRol(Integer cedula, String contrasenia);
+
+    void insertarUsuarios(Usuarios usuario);
+
+    void actualizarUsuarios(Usuarios usuario);
 }

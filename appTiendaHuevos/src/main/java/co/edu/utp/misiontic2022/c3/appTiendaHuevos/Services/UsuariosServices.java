@@ -22,6 +22,18 @@ public class UsuariosServices implements IUsuariosGateway {
         return iUsuariosRepository.buscarRol(cedula ,contrasenia);
     }
 
+    @Override
+    public void insertarUsuarios(Usuarios usuario) {
+        iUsuariosRepository.save(usuario);
+    }
 
+    @Override
+    public void actualizarUsuarios(Usuarios usuario) {
+        Usuarios updateUsuario = iUsuariosRepository.findByCedula(usuario.getCedula());
+        updateUsuario.setContrasenia(usuario.getContrasenia());
+        updateUsuario.setRol(usuario.getRol());
+        updateUsuario.setEstado(usuario.getEstado());
+        iUsuariosRepository.save(updateUsuario);
+    }
 
 }

@@ -9,4 +9,8 @@ public interface IProductosGateway {
     List<Productos> buscarProductos();
 
     void insertarProducto(Productos producto);
+
+    Productos buscarProductoPorNombre(String buscarPorNombre);
+
+    void actualizarValorProducto(Productos producto);
 }

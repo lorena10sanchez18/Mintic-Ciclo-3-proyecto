@@ -9,4 +9,7 @@ import java.util.List;
 public interface IProductosRepository extends JpaRepository<Productos, Integer> {
     @Query(value = "SELECT * FROM productos",nativeQuery = true)
     List<Productos> buscarProductos();
+
+    Productos findByDescripcionProductos(String descripcionProductos);
+
 }
