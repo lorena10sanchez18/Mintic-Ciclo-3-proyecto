@@ -4,43 +4,58 @@
   </header>
   <nav class="menu"><app-menu-admin></app-menu-admin></nav>
   <article class="contenido">
-    <div class="formularioCalendario">
-      <div class="desde">
-        <span class="titulo">Desde:</span>
-        <div class="input-group mb-3">
-          <input
-            formControlName=""
-            type="date"
-            class="form-control"
-            placeholder=""
-            aria-label="cantidad"
-            aria-describedby="basic-addon1"
-          />
+    <form [formGroup]="formulariosCalendario">
+      <div class="formularioCalendario">
+        <div class="desde">
+          <span class="titulo">Desde:</span>
+          <div class="input-group mb-3">
+            <input
+              formControlName="desde"
+              type="date"
+              class="form-control"
+              placeholder=""
+              aria-label="cantidad"
+              aria-describedby="basic-addon1"
+            />
+          </div>
         </div>
-      </div>
-      <div class="desde">
-        <span class="titulo">Hasta:</span>
-        <div class="input-group mb-3">
-          <input
-            formControlName=""
-            type="date"
-            class="form-control"
-            placeholder=""
-            aria-label="cantidad"
-            aria-describedby="basic-addon1"
-          />
+        <div class="desde">
+          <span class="titulo">Hasta:</span>
+          <div class="input-group mb-3">
+            <input
+              formControlName="hasta"
+              type="date"
+              class="form-control"
+              placeholder=""
+              aria-label="cantidad"
+              aria-describedby="basic-addon1"
+            />
+          </div>
         </div>
+        <button
+          [disabled]="
+            formulariosCalendario.value.desde >
+            formulariosCalendario.value.hasta
+          "
+          (click)="buscar()"
+          id="buscar"
+          type="button"
+          class="btn btn-warning"
+        >
+          Buscar
+        </button>
       </div>
-      <button id="buscar" type="button" class="btn btn-warning">Buscar</button>
-    </div>
+    </form>
     <div class="totalVentas">
       <span id="tituloTotal">Total Ventas:</span>
       <div class="input-group mb-3">
-        <output class="salida"> {{resTotalVentas}} </output>
+        <output class="salida">
+          {{ resTotalVentas | currency: "$ ":"symbol":"3.0" }}
+        </output>
       </div>
     </div>
-    <div class="tabla" >
-      <table class="table table-bordered border-secondary" value="!! variable del json !!">
+    <div  id="tabla" class="table-responsive">
+      <table class="table table-bordered border-secondary">
         <thead>
           <tr>
             <th scope="col">Fecha</th>
@@ -49,12 +64,12 @@
             <th scope="col">Costo</th>
           </tr>
         </thead>
-        <tbody let campo>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+        <tbody>
+          <tr *ngFor="let t of resventasPorFechas">
+            <td>{{ t.fecha | date: "dd-MM-yyyy" }}</td>
+            <td>{{ t.descripcionProducto.descripcionProductos }}</td>
+            <td>{{ t.cantidad }}</td>
+            <td>{{ t.valorTotal | currency: "$ ":"symbol":"3.0" }}</td>
           </tr>
         </tbody>
       </table>
