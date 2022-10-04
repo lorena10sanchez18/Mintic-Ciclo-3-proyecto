@@ -4,34 +4,30 @@
   </header>
   <nav class="menu"><app-menu-admin></app-menu-admin></nav>
   <article class="contenido">
-
-    <form [formGroup]="formularioBuscarUsuario" >
+    <form [formGroup]="formularioBuscarUsuario">
       <div class="formularioBuscar">
-     <span class="titulo">CC</span>
-      <div class="input-group mb-3">
-        <input
-          formControlName="cedula"
-          type="number"
-          class="form-control"
-          placeholder=""
-          aria-label="cantidad"
-          aria-describedby="basic-addon1"
-        />
-      </div>
+        <span class="titulo">CC</span>
+        <div class="input-group mb-3">
+          <input
+            formControlName="cedula"
+            type="number"
+            class="form-control"
+            aria-describedby="basic-addon1"
+          />
+        </div>
         <div id="botones">
-        <button
-          id="buscar"
-          (click)="buscar()"
-          type="button"
-          class="btn btn-warning"
-          
-        >
-          Buscar
-        </button>
+          <button
+            id="buscar"
+            [disabled]="formularioBuscarUsuario.invalid"
+            (click)="buscar()"
+            type="button"
+            class="btn btn-warning"
+          >
+            Buscar
+          </button>
         </div>
       </div>
     </form>
-
 
     <form [formGroup]="formularioActualizarUsuario">
       <div class="formulario">
@@ -39,14 +35,10 @@
         <div class="input-group mb-3">
           <input
             formControlName="nombreUsuario"
-             
             type="text"
             class="form-control"
-            placeholder=""
-            aria-label="cantidad"
             aria-describedby="basic-addon1"
           />
- 
         </div>
 
         <span class="titulo">CC</span>
@@ -55,8 +47,6 @@
             formControlName="cedula"
             type="number"
             class="form-control"
-            placeholder=""
-            aria-label="cantidad"
             aria-describedby="basic-addon1"
           />
         </div>
@@ -67,70 +57,78 @@
             formControlName="contrasenia"
             type="password"
             class="form-control"
-            placeholder=""
-            aria-label="cantidad"
             aria-describedby="basic-addon1"
           />
         </div>
 
         <span class="titulo">Roles</span>
-        
+
         <div class="form-check">
-          <input class="form-check-input" 
-            type="radio" 
-            formControlName="rol"  
-            value="ADMINISTRADOR" 
-            id="flexRadioDefault1" checked>
+          <input
+            class="form-check-input"
+            type="radio"
+            formControlName="rol"
+            value="ADMINISTRADOR"
+            id="flexRadioDefault1"
+            checked
+          />
           <label class="form-check-label" for="flexRadioDefault1">
             Administrador
           </label>
         </div>
 
         <div class="form-check">
-          <input class="form-check-input" 
-          type="radio" 
-          formControlName="rol" 
-          value="AUXILIAR BODEGA" 
-          id="flexRadioDefault2" >
+          <input
+            class="form-check-input"
+            type="radio"
+            formControlName="rol"
+            value="AUXILIAR BODEGA"
+            id="flexRadioDefault2"
+          />
           <label class="form-check-label" for="flexRadioDefault2">
             Auxiliar Bodega
           </label>
         </div>
-        
+
         <div class="form-check">
-          <input class="form-check-input" 
-          type="radio" 
-          formControlName="rol" 
-          value="VENDEDOR" 
-          id="flexRadioDefault3">
+          <input
+            class="form-check-input"
+            type="radio"
+            formControlName="rol"
+            value="VENDEDOR"
+            id="flexRadioDefault3"
+          />
           <label class="form-check-label" for="flexRadioDefault3">
             Vendedor
           </label>
         </div>
 
         <span class="titulo">Estado</span>
-        
+
         <div class="form-check-inline">
-          <input class="form-check-input" 
-          type="radio" 
-          formControlName="estado" 
-          value="activo"
-          id="flexRadioDefault4">
+          <input
+            class="form-check-input"
+            type="radio"
+            formControlName="estado"
+            value="activo"
+            id="flexRadioDefault4"
+          />
           <label class="form-check-label" for="flexRadioDefault4">
             Activo
           </label>
         </div>
         <div class="form-check-inline">
-          <input class="form-check-input" 
-          type="radio" 
-          formControlName="estado" 
-          value="inactivo"
-          id="flexRadioDefault5">
+          <input
+            class="form-check-input"
+            type="radio"
+            formControlName="estado"
+            value="inactivo"
+            id="flexRadioDefault5"
+          />
           <label class="form-check-label" for="flexRadioDefault5">
             Inactivo
           </label>
         </div>
-  
 
         <div id="botones">
           <button
@@ -144,7 +142,43 @@
           >
             Actualizar
           </button>
-
+          <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    APP tienda Huevos
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                    (click)="cancelar()"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  {{ resActualizarUsuario }}
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                    (click)="cancelar()"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
           <button
             id="cancelar"
             type="button"
