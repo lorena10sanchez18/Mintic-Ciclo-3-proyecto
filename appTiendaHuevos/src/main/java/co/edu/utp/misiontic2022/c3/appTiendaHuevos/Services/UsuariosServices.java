@@ -33,6 +33,7 @@ public class UsuariosServices implements IUsuariosGateway {
         updateUsuario.setContrasenia(usuario.getContrasenia());
         updateUsuario.setRol(usuario.getRol());
         updateUsuario.setEstado(usuario.getEstado());
+        updateUsuario.setNombre(usuario.getNombre());
         iUsuariosRepository.save(updateUsuario);
     }
 

@@ -37,11 +37,11 @@ public class IngresosBodega {
     private Double valorUnitario;
 
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="id_productos")
+  @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name="id_producto")
     private Productos descripcionProductos;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+ @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="id_ubicacion")
     private Ubicaciones posicion;
 

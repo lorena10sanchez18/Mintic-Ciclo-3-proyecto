@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.lang.model.util.Elements;
+
 @RestController
 @RequestMapping(path = "/api")
 @CrossOrigin(origins = "http://localhost:4200")
@@ -23,6 +25,16 @@ public class UsuariosController {
                 usuariosServices.buscarUsuarioPorCedula(cedula),
                 HttpStatus.OK);
     }
+
+    //@CrossOrigin(origins = "http://localhost:4200")
+    @PostMapping("/buscar-usuario-cedula")
+    public Usuarios buscarUsuarioPorCedula(@RequestBody JsonNode body) {
+        return (
+                usuariosServices.buscarUsuarioPorCedula(
+                        body.get("cedula").asInt())
+                );
+    }
+
 
     @PostMapping("/login")
     public ResponseEntity<Usuarios> ingresoAplicacion(@RequestBody JsonNode body) {
