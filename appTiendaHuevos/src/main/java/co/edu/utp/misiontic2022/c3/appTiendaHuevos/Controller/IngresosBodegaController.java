@@ -23,9 +23,7 @@ public class IngresosBodegaController {
     @PostMapping("/insertar-ingresos-bodega")
     public String insertarIngresosBodega(@RequestBody IngresosBodega ingresosBodega) {
                 ingresosBodegaService.agregarIngresosBodega(ingresosBodega);
-        System.out.println("INGRESO BODEGA");
-        System.out.println(ingresosBodega);
-             return ("Se guardo con exito el ajuste de inventario");
+             return ("Se guardo con exito el ingreso de inventario");
     }
 
     @GetMapping("/consultar-ingresos-bodega")
