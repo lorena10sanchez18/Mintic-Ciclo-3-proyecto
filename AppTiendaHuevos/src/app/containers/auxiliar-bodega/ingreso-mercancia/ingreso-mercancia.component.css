@@ -1,32 +1,36 @@
 #formulario {
-    margin-left: 250px;
-    margin-top: 50px;
-    border: 1px solid white;
-    width: 500px;
-    height: 400px;
-    background-color: gray;
-    border-radius: 3%;
-  }
-  .form-select {
-    width: 250px;
-    margin-left: 25px;
-    /* margin-top: 20px; */
-  }
-  .input-group {
-    width: 400px;
-    margin-left: 40px;
-    margin-top: 20px;
-  }
-  #botones{
-      display: flex;
-      justify-content: space-around;
-      margin-top: 20px;
-  }
-  .titulo{
-    display: flex;
-    justify-content: center;
-  }
-
-  .row{
-    margin-left: 40px;
-  }
+  margin-left: 250px;
+  margin-top: 50px;
+  border: 1px solid white;
+  width: 500px;
+  height: 400px;
+  background-color: gray;
+  border-radius: 3%;
+}
+#botones {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.titulo {
+  margin-right: 5px;
+  margin-top: 5px;
+}
+.row {
+  margin-left: 40px;
+}
+#tipoProducto {
+  width: 140px;
+  margin-left: -1px;
+}
+#inputBodega {
+  width: 200px;
+}
+.contenedor {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+#observaciones {
+  width: 425px;
+}

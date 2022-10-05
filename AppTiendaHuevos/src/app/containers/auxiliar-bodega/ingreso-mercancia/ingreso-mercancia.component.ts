@@ -7,11 +7,10 @@ import { MotivosService } from '@core/Services/motivos.service';
 import { UbicacionesService } from '@core/Services/ubicaciones.service';
 import { ProductosService } from '@core/Services/productos.service';
 
-
 @Component({
   selector: 'app-ingreso-mercancia',
   templateUrl: './ingreso-mercancia.component.html',
-  styleUrls: ['./ingreso-mercancia.component.css']
+  styleUrls: ['./ingreso-mercancia.component.css'],
 })
 export class IngresoMercanciaComponent implements OnInit {
   formIngresoMercancia: FormGroup;
@@ -26,13 +25,13 @@ export class IngresoMercanciaComponent implements OnInit {
   descripcionMotivo!: number;
   cantidad!: number;
   observaciones!: string;
-  id_producto !: any;
-  valor_unitario !: any;
+  id_producto!: any;
+  valor_unitario!: any;
   id_ubicacion!: any;
   ingresosBodega!: {};
   ingreso!: {};
   respuestaPostIngresoProducto!: any;
-  respuestaback !: any;
+  respuestaback!: any;
 
   constructor(
     private servicesProducto: ProductosService,
@@ -43,16 +42,15 @@ export class IngresoMercanciaComponent implements OnInit {
     private serviceMercancia: IngresoMercanciaService
   ) {
     this.formIngresoMercancia = this.fb.group({
-      descripcionProductos: ['Tipo de producto', [Validators.required]],
-      descripcionBodega: ['Almacen', [Validators.required]],
-      descripcionMotivo: ['Motivo', [Validators.required]],
+      fecha: ['', [Validators.required]],
+      descripcionProductos: ['', [Validators.required]],
+      factura: ['', [Validators.required]],
       cantidad: ['', [Validators.required]],
+      descripcionBodega: ['', [Validators.required]],
+      descripcionUbicacion: ['', [Validators.required]],
       observaciones: ['', [Validators.required]],
-      descripcionUbicacion: [''],
-      fecha: [''],
-      factura: ['']
     });
-   }
+  }
 
   ngOnInit(): void {
     this.servicesProducto.mostrarProducto().subscribe((respuestaback) => {
@@ -67,38 +65,35 @@ export class IngresoMercanciaComponent implements OnInit {
     this.servicesUbicaciones.mostrarUbicaciones().subscribe((respuestaback) => {
       this.resMostrarUbicaciones = respuestaback;
     });
-    
   }
 
-  
-guardar() {
-  this.factura = "100" ;
-  this.observaciones = "ninguna";
-  this.fecha = "2022-10-02";
-  this.id_producto = 1;
-  this.cantidad = 10;
-  this.valor_unitario = 1000;
-  this.id_ubicacion = 1;
+  guardar() {
+    this.factura = this.formIngresoMercancia.value.factura;
+    this.observaciones = this.formIngresoMercancia.value.observaciones;
+    this.fecha = this.formIngresoMercancia.value.fecha;
+    this.id_producto = this.formIngresoMercancia.value.descripcionProductos;
+    this.cantidad = this.formIngresoMercancia.value.cantidad;
+    this.valor_unitario = 1000;
+    this.id_ubicacion = 1;
 
-  this.ingresosBodega = {
-     factura : this.factura ,
-     observaciones : this.observaciones,
-     fecha : this.fecha ,
-     id_producto : this.id_producto ,
-     cantidad : this.cantidad ,
-     valor_unitario : this.valor_unitario ,
-     id_ubicacion : this.id_ubicacion 
-  };
-  
-  console.log(this.ingresosBodega);
+    this.ingresosBodega = {
+      factura: this.factura,
+      observaciones: this.observaciones,
+      fecha: this.fecha,
+      id_producto: this.id_producto,
+      cantidad: this.cantidad,
+      valor_unitario: this.valor_unitario,
+      id_ubicacion: this.id_ubicacion,
+    };
 
-  this.serviceMercancia
-    .ingresosProducto(this.ingresosBodega )
-    .subscribe((response: any) => {
-      this.respuestaback = response.body;
-    });
-}
- 
-  
-  cancelar(){};
+    this.serviceMercancia
+      .ingresosProducto(this.ingresosBodega)
+      .subscribe((response: any) => {
+        this.respuestaback = response.body;
+      });
+  }
+
+  cancelar() {
+    this.formIngresoMercancia.reset();
+  }
 }
